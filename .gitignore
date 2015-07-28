@@ -17,6 +17,24 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Carpetas
+/bin/*
+!/bin/data/
+[Bd]uild/
+[Oo]bj/
++.o
+[Dd]ebug*/
+[Rr]elease*/
+
+# Visual Studio
+*.sdf
+*.opensdf
+*.suo
+*.pdb
+*.ilk
+*.aps
+ipch/
+
 # =========================
 # Operating System Files
 # =========================
@@ -43,3 +61,6 @@ Temporary Items
 .apdisk
 *.opensdf
 PRJ002IT1.sdf
+*.tlog
+*.obj
+*.dll

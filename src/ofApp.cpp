@@ -3,6 +3,8 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 
+	escenaInicial.ImagenInicio();
+	escenas = inicio;
 }
 
 //--------------------------------------------------------------
@@ -12,12 +14,24 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-	cout << "iteracion 1" << endl;
+	
+	switch(escenas) {
+
+	case inicio: escenaInicial.draw(20,100,20); break;
+	case principal: escenaPrincipal.draw(200,10,10);break;
+
+	}
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
 
+	if(key=='a'){
+		switch(escenas) {
+			case inicio: escenas = principal; break;
+			case principal: escenas = inicio; break;
+		}
+	}
 }
 
 //--------------------------------------------------------------
