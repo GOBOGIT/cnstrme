@@ -2,15 +2,16 @@
 #include "ofMain.h"
 #include "ofEvents.h"
 #include "../Gui/BtnCirculo.h"
+#include "../interface.h"
 
 
-class Principal {
+class Ayuda {
 
 
 public:
 
-	Principal() {};
-	~Principal() {};
+	Ayuda() {};
+	~Ayuda() {};
 
 
 	void draw(int _r, int _g, int _b);
@@ -18,8 +19,8 @@ public:
 	void desactivar();
 	void activar();
 	void iniciar();
+	
+	boton BtnRegresaPrincipal;
 
-	boton BtnRegresaInicio;
-	boton BtnAyuda;
 
 };

@@ -19,8 +19,17 @@
     <ClCompile Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpTexture.cpp">
       <Filter>addons\ofxAssimpModelLoader\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Escenas\Inicio.cpp" />
-    <ClCompile Include="src\Escenas\Principal.cpp" />
+    <ClCompile Include="src\Escenas\Inicio.cpp">
+      <Filter>src\Escenas</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Escenas\Principal.cpp">
+      <Filter>src\Escenas</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Gui\BtnCirculo.cpp">
+      <Filter>src\Gui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Interface.cpp" />
+    <ClCompile Include="src\Escenas\Ayuda.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -46,6 +55,12 @@
     </Filter>
     <Filter Include="addons\ofxAssimpModelLoader\libs\assimp\include\Compiler">
       <UniqueIdentifier>{E4500551-64E5-7412-70FA-BC1B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Escenas">
+      <UniqueIdentifier>{e51dd2a5-3a6b-43f2-ac5b-0abf7cfe96dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Gui">
+      <UniqueIdentifier>{dd2a469a-86bd-43c9-9a68-05c14d37fe37}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -160,8 +175,19 @@
     <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\ProgressHandler.h">
       <Filter>addons\ofxAssimpModelLoader\libs\assimp\include</Filter>
     </ClInclude>
-    <ClInclude Include="src\Escenas\Inicio.h" />
-    <ClInclude Include="src\Escenas\Principal.h" />
+    <ClInclude Include="src\Escenas\Inicio.h">
+      <Filter>src\Escenas</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Escenas\Principal.h">
+      <Filter>src\Escenas</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Gui\BtnCirculo.h">
+      <Filter>src\Gui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\interface.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Escenas\Ayuda.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />

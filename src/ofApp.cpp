@@ -1,14 +1,42 @@
 #include "ofApp.h"
+#include "interface.h"
+
+escena escenas;
 
 //--------------------------------------------------------------
-void ofApp::setup(){
 
-	escenaInicial.ImagenInicio();
+void ofApp::setup(){
+	
+	escenaPrincipal.iniciar();
+	escenaAyuda.iniciar();
+	escenaInicial.iniciar();
+
+	ofSetFrameRate(60);
 	escenas = inicio;
+	escenaSel = inicio;	
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
+
+	if(escenaSel !=escenas) {
+		switch(escenas) {
+			case inicio: break;
+				escenaInicial.activar();
+				escenaPrincipal.desactivar();
+			case principal:
+				escenaInicial.desactivar();
+				escenaAyuda.desactivar();
+				escenaPrincipal.activar();
+				break;
+			case ayuda:
+				escenaPrincipal.desactivar();
+				escenaAyuda.activar();
+				break;
+		}
+		cout << "if" << endl;
+		escenaSel = escenas;
+	}
 
 }
 
@@ -17,8 +45,14 @@ void ofApp::draw(){
 	
 	switch(escenas) {
 
-	case inicio: escenaInicial.draw(20,100,20); break;
-	case principal: escenaPrincipal.draw(200,10,10);break;
+		case inicio: 
+			escenaInicial.draw(230,230,230); 
+			break;
+		case principal: 
+			escenaPrincipal.draw(200,10,10);
+			break;
+		case ayuda: escenaAyuda.draw(100,10,10);
+			break;
 
 	}
 }
@@ -26,12 +60,7 @@ void ofApp::draw(){
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
 
-	if(key=='a'){
-		switch(escenas) {
-			case inicio: escenas = principal; break;
-			case principal: escenas = inicio; break;
-		}
-	}
+
 }
 
 //--------------------------------------------------------------

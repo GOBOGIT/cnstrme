@@ -3,12 +3,12 @@
 #include "ofMain.h"
 #include "Escenas\Inicio.h"
 #include "Escenas\Principal.h"
+#include "Escenas\Ayuda.h"
 
-class ofApp : public ofBaseApp{
 
-private:
 
-	enum escena {inicio, principal, ayuda};
+class ofApp : public ofBaseApp {
+		
 
 
 	public:
@@ -26,8 +26,13 @@ private:
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
-		escena escenas;
 		Inicio escenaInicial;
 		Principal escenaPrincipal;
+		Ayuda escenaAyuda;
+
+		escena escenaSel;
+		
 		
 };
+
+

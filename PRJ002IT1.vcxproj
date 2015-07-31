@@ -90,8 +90,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Escenas\Ayuda.cpp" />
     <ClCompile Include="src\Escenas\Inicio.cpp" />
     <ClCompile Include="src\Escenas\Principal.cpp" />
+    <ClCompile Include="src\Gui\BtnCirculo.cpp" />
+    <ClCompile Include="src\Interface.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.cpp" />
@@ -100,8 +103,11 @@
     <ClCompile Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpTexture.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Escenas\Ayuda.h" />
     <ClInclude Include="src\Escenas\Inicio.h" />
     <ClInclude Include="src\Escenas\Principal.h" />
+    <ClInclude Include="src\Gui\BtnCirculo.h" />
+    <ClInclude Include="src\interface.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.h" />
     <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpMeshHelper.h" />
