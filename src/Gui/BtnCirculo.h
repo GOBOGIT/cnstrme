@@ -1,5 +1,6 @@
 #pragma once
 #include "ofMain.h"
+#include "ofxTween.h"
 #include "../interface.h"
 
 class boton {
@@ -8,12 +9,11 @@ class boton {
 public:
 
 	void setup();
-	void setup(escena, string);
+	void setup(escena, string, ofTrueTypeFont);
 	void draw(int,int,int);
 	
 
 	ofEvent <string> evento;
-	
 
 	void mouseMoved(ofMouseEventArgs & args);
     void mouseDragged(ofMouseEventArgs & args);
@@ -28,8 +28,14 @@ public:
 	void desactivar();
 	void activar();
 
-	string texto;
 
+	string texto;
+	ofColor color;
+	
 	escena miescena;
+
+	ofTrueTypeFont typo;
+	Interf interf;
+
 
 };

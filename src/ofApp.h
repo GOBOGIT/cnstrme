@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "interface.h"
 #include "Escenas\Inicio.h"
 #include "Escenas\Principal.h"
 #include "Escenas\Ayuda.h"
@@ -8,8 +9,6 @@
 
 
 class ofApp : public ofBaseApp {
-		
-
 
 	public:
 		void setup();
@@ -26,13 +25,13 @@ class ofApp : public ofBaseApp {
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
+
 		Inicio escenaInicial;
 		Principal escenaPrincipal;
 		Ayuda escenaAyuda;
 
 		escena escenaSel;
-		
-		
+
 };
 
 

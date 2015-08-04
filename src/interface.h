@@ -4,17 +4,20 @@
 enum escena {inicio, principal, ayuda};
 extern escena escenas;
 
-	
-class interf {
+
+class Interf {
 
 	private:
 
 		ofColor color;
-
+		ofTrueTypeFont typo;
+		
 	public:
 
 		ofColor cClick();
 		ofColor cReleased();
+		ofTrueTypeFont tipoBtn();
+	
 };
 
 

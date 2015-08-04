@@ -6,40 +6,49 @@ void boton::setup() {
 	esActivo = true;
 }
 
-void boton::setup(escena _escena, string _texto) {
-	
-		texto = _texto;
-		miescena = _escena;
-		ofRegisterMouseEvents(this);
-		
-}
 
+void boton::setup(escena _escena, string _texto, ofTrueTypeFont _typo) {
+
+	texto = _texto;
+	typo = _typo;
+	miescena = _escena;
+	color = interf.cReleased();
+	ofRegisterMouseEvents(this);
+}
 
 
 void boton::draw(int _x, int _y, int _r) {
-	this->radio = _r;
-	this ->x =_x;
-	this ->y =_y;
-	ofCircle(x,y,radio);
-}
+	radio = _r;
+	x =_x;
+	y =_y;
+	
 
+	ofRectangle bounds = typo.getStringBoundingBox(texto, 0, 0);
+
+	ofPushStyle();
+		ofSetColor(color);
+		ofCircle(x,y,radio);
+		ofSetColor(ofColor::black);
+		typo.drawString(texto,x-bounds.width/2,y+bounds.height/2);
+	ofPopStyle();
+	
+}
 
 void boton::mouseMoved(ofMouseEventArgs & args){}
 void boton::mouseDragged(ofMouseEventArgs & args){}
 void boton::mousePressed(ofMouseEventArgs & args){
 	ofNotifyEvent(evento, texto,  this);
 
-	if(dentro(args.x, args.y)){
-		cout << "dentro" + texto << endl;
-		escenas = miescena;
-
-	}
+	if(dentro(args.x, args.y))
+		color = interf.cClick();
+	
 }
 void boton::mouseReleased(ofMouseEventArgs & args){
 
-		if(dentro(args.x, args.y)){
-			cout << "released" << endl;
-		}
+	if(dentro(args.x, args.y)){
+		color = interf.cReleased();
+		escenas = miescena;
+	}
 }
 
 
@@ -48,13 +57,11 @@ bool boton::dentro(float _x, float _y) {
 }
 
 void boton::desactivar() {
-	cout << "dentroDesact" + texto << endl;
-	if(!esActivo)
+	if(!esActivo) 
 		ofUnregisterMouseEvents(this);
 }
 
 void boton::activar() {
-	cout << "dentroAct" + texto << endl;
-	if(esActivo)
+	if(esActivo) 
 		ofRegisterMouseEvents(this);
 }

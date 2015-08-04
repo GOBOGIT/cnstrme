@@ -1,14 +1,23 @@
 #include "interface.h"
 
 
-ofColor interf::cReleased() {
-	color.r = 255, color.g = 100, color.b = 10;
-	cout << "cambio color" << endl;
+ofColor Interf::cReleased() {
+	color.r = 195, color.g = 225, color.b = 195;
 	return color;
 	}
 
-ofColor interf::cClick() {
-	color.r = 155, color.g = 200, color.b = 10;
+ofColor Interf::cClick() {
+	color.r = 150, color.g = 225, color.b = 150;
 	return color;
 	}
+
+ofTrueTypeFont Interf::tipoBtn() {
+	
+	typo.loadFont("OCRAStd.otf", 10, true, false, true);
+	typo.setLineHeight(18.0f);
+	typo.setLetterSpacing(1.02);
+	return typo;
+
+}
+
 

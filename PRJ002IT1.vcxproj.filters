@@ -30,6 +30,45 @@
     </ClCompile>
     <ClCompile Include="src\Interface.cpp" />
     <ClCompile Include="src\Escenas\Ayuda.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxTween\src\ofxTween.cpp">
+      <Filter>addons\ofxTween\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasing.cpp">
+      <Filter>addons\ofxTween\src\Easings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingBack.cpp">
+      <Filter>addons\ofxTween\src\Easings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingBounce.cpp">
+      <Filter>addons\ofxTween\src\Easings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingCirc.cpp">
+      <Filter>addons\ofxTween\src\Easings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingCubic.cpp">
+      <Filter>addons\ofxTween\src\Easings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingElastic.cpp">
+      <Filter>addons\ofxTween\src\Easings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingExpo.cpp">
+      <Filter>addons\ofxTween\src\Easings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingLinear.cpp">
+      <Filter>addons\ofxTween\src\Easings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingQuad.cpp">
+      <Filter>addons\ofxTween\src\Easings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingQuart.cpp">
+      <Filter>addons\ofxTween\src\Easings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingQuint.cpp">
+      <Filter>addons\ofxTween\src\Easings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingSine.cpp">
+      <Filter>addons\ofxTween\src\Easings</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -61,6 +100,15 @@
     </Filter>
     <Filter Include="src\Gui">
       <UniqueIdentifier>{dd2a469a-86bd-43c9-9a68-05c14d37fe37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxTween">
+      <UniqueIdentifier>{ca247887-cf3f-471d-a5b0-5b0b4f26c4c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxTween\src">
+      <UniqueIdentifier>{3569fe71-225c-4204-9009-c4cfaec4eaaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxTween\src\Easings">
+      <UniqueIdentifier>{a28eec2a-f2dd-4372-8dd4-c462d2502629}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -184,10 +232,47 @@
     <ClInclude Include="src\Gui\BtnCirculo.h">
       <Filter>src\Gui</Filter>
     </ClInclude>
-    <ClInclude Include="src\interface.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\Escenas\Ayuda.h" />
+    <ClInclude Include="..\..\..\addons\ofxTween\src\ofxTween.h">
+      <Filter>addons\ofxTween\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasing.h">
+      <Filter>addons\ofxTween\src\Easings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingBack.h">
+      <Filter>addons\ofxTween\src\Easings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingBounce.h">
+      <Filter>addons\ofxTween\src\Easings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingCirc.h">
+      <Filter>addons\ofxTween\src\Easings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingCubic.h">
+      <Filter>addons\ofxTween\src\Easings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingElastic.h">
+      <Filter>addons\ofxTween\src\Easings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingExpo.h">
+      <Filter>addons\ofxTween\src\Easings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingLinear.h">
+      <Filter>addons\ofxTween\src\Easings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingQuad.h">
+      <Filter>addons\ofxTween\src\Easings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingQuart.h">
+      <Filter>addons\ofxTween\src\Easings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingQuint.h">
+      <Filter>addons\ofxTween\src\Easings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingSine.h">
+      <Filter>addons\ofxTween\src\Easings</Filter>
+    </ClInclude>
+    <ClInclude Include="src\interface.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />

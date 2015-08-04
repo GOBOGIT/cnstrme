@@ -2,7 +2,6 @@
 #include "ofMain.h"
 #include "ofEvents.h"
 #include "../Gui/BtnCirculo.h"
-#include "../interface.h"
 
 
 
@@ -23,8 +22,15 @@ public:
 	void activar();
 	void iniciar();
 
-	boton BtnInicio;
+	unsigned delay;
+	unsigned duration;
 
+
+	boton BtnInicio;
+	ofTrueTypeFont typo;
+
+	ofxTween animImagenInicio;
+	ofxEasingElastic easingelastic;
 
 	
 };

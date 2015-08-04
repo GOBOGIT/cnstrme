@@ -2,7 +2,7 @@
 #include "ofMain.h"
 #include "ofEvents.h"
 #include "../Gui/BtnCirculo.h"
-#include "../interface.h"
+
 
 
 class Ayuda {
@@ -20,7 +20,9 @@ public:
 	void activar();
 	void iniciar();
 	
+	ofTrueTypeFont typo;
 	boton BtnRegresaPrincipal;
+
 
 
 };

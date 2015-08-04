@@ -58,7 +58,7 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\Compiler;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\opf\opfVB\addons\ofxTween\src\Easings;E:\opf\opfVB\addons\ofxTween\src;E:\opf\opfVB\addons\ofxTween\src\Easings;E:\opf\opfVB\addons\ofxTween\src;%(AdditionalIncludeDirectories);..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\Compiler;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
@@ -75,7 +75,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\Compiler;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\opf\opfVB\addons\ofxTween\src\Easings;E:\opf\opfVB\addons\ofxTween\src;%(AdditionalIncludeDirectories);..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\Compiler;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
@@ -90,6 +90,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasing.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingBack.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingBounce.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingCirc.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingCubic.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingElastic.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingExpo.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingLinear.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingQuad.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingQuart.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingQuint.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingSine.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxTween\src\ofxTween.cpp" />
     <ClCompile Include="src\Escenas\Ayuda.cpp" />
     <ClCompile Include="src\Escenas\Inicio.cpp" />
     <ClCompile Include="src\Escenas\Principal.cpp" />
@@ -103,6 +116,19 @@
     <ClCompile Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpTexture.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasing.h" />
+    <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingBack.h" />
+    <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingBounce.h" />
+    <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingCirc.h" />
+    <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingCubic.h" />
+    <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingElastic.h" />
+    <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingExpo.h" />
+    <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingLinear.h" />
+    <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingQuad.h" />
+    <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingQuart.h" />
+    <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingQuint.h" />
+    <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingSine.h" />
+    <ClInclude Include="..\..\..\addons\ofxTween\src\ofxTween.h" />
     <ClInclude Include="src\Escenas\Ayuda.h" />
     <ClInclude Include="src\Escenas\Inicio.h" />
     <ClInclude Include="src\Escenas\Principal.h" />

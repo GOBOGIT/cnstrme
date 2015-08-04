@@ -1,7 +1,8 @@
 #pragma once
 #include "ofMain.h"
-#include "ofEvents.h"
+#include "ofxAssimpModelLoader.h"
 #include "../Gui/BtnCirculo.h"
+
 
 
 class Principal {
@@ -19,7 +20,12 @@ public:
 	void activar();
 	void iniciar();
 
+
 	boton BtnRegresaInicio;
 	boton BtnAyuda;
+	ofTrueTypeFont typo;
+
+	ofEasyCam cam;
+	ofxAssimpModelLoader modelo;
 
 };
