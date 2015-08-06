@@ -1,6 +1,6 @@
 #pragma once
+
 #include "ofMain.h"
-#include "ofEvents.h"
 #include "../Gui/BtnCirculo.h"
 
 
@@ -16,13 +16,8 @@ public:
 
 	void draw(int _r, int _g, int _b);
 
-	void desactivar();
-	void activar();
+
 	void iniciar();
+	void estados(bool);
 	
-	ofTrueTypeFont typo;
-	boton BtnRegresaPrincipal;
-
-
-
 };

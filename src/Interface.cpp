@@ -11,6 +11,11 @@ ofColor Interf::cClick() {
 	return color;
 	}
 
+ofColor Interf::cDisable() {
+	color.r = 200, color.g = 200, color.b = 200;
+	return color;
+	}
+
 ofTrueTypeFont Interf::tipoBtn() {
 	
 	typo.loadFont("OCRAStd.otf", 10, true, false, true);

@@ -16,6 +16,7 @@ class Interf {
 
 		ofColor cClick();
 		ofColor cReleased();
+		ofColor cDisable();
 		ofTrueTypeFont tipoBtn();
 	
 };

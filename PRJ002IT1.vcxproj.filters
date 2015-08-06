@@ -29,7 +29,6 @@
       <Filter>src\Gui</Filter>
     </ClCompile>
     <ClCompile Include="src\Interface.cpp" />
-    <ClCompile Include="src\Escenas\Ayuda.cpp" />
     <ClCompile Include="..\..\..\addons\ofxTween\src\ofxTween.cpp">
       <Filter>addons\ofxTween\src</Filter>
     </ClCompile>
@@ -68,6 +67,15 @@
     </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingSine.cpp">
       <Filter>addons\ofxTween\src\Easings</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Gui\GuiEscenas.cpp">
+      <Filter>src\Gui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Escenas\Ayuda.cpp">
+      <Filter>src\Escenas</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Gui\GuiEstaticos.cpp">
+      <Filter>src\Gui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -232,7 +240,6 @@
     <ClInclude Include="src\Gui\BtnCirculo.h">
       <Filter>src\Gui</Filter>
     </ClInclude>
-    <ClInclude Include="src\Escenas\Ayuda.h" />
     <ClInclude Include="..\..\..\addons\ofxTween\src\ofxTween.h">
       <Filter>addons\ofxTween\src</Filter>
     </ClInclude>
@@ -273,6 +280,15 @@
       <Filter>addons\ofxTween\src\Easings</Filter>
     </ClInclude>
     <ClInclude Include="src\interface.h" />
+    <ClInclude Include="src\Gui\GuiEscenas.h">
+      <Filter>src\Gui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Escenas\Ayuda.h">
+      <Filter>src\Escenas</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Gui\GuiEstaticos.h">
+      <Filter>src\Gui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />

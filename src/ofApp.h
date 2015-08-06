@@ -1,11 +1,10 @@
 #pragma once
 
 #include "ofMain.h"
-#include "interface.h"
 #include "Escenas\Inicio.h"
 #include "Escenas\Principal.h"
 #include "Escenas\Ayuda.h"
-
+#include "Gui/GuiEscenas.h"
 
 
 class ofApp : public ofBaseApp {
@@ -26,11 +25,14 @@ class ofApp : public ofBaseApp {
 		void gotMessage(ofMessage msg);
 
 
+		void estadosEscenas(bool, bool, bool);
+
 		Inicio escenaInicial;
 		Principal escenaPrincipal;
 		Ayuda escenaAyuda;
 
 		escena escenaSel;
+		GuiEscenas guiEscenas;
 
 };
 

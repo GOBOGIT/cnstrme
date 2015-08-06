@@ -3,6 +3,8 @@
 #include "ofxTween.h"
 #include "../interface.h"
 
+
+
 class boton {
 
 
@@ -10,6 +12,7 @@ public:
 
 	void setup();
 	void setup(escena, string, ofTrueTypeFont);
+	void update(int,int);
 	void draw(int,int,int);
 	
 
@@ -20,19 +23,19 @@ public:
 	void mousePressed(ofMouseEventArgs & args);
     void mouseReleased(ofMouseEventArgs & args);
 
-	int x, y, radio;
+	int Relx, Rely, radio;
+	int Absx, Absy;
 	
 	bool dentro(float,float);
 	bool esActivo;
 
-	void desactivar();
-	void activar();
-
+	void estados(bool);
 
 	string texto;
 	ofColor color;
-	
 	escena miescena;
+
+
 
 	ofTrueTypeFont typo;
 	Interf interf;

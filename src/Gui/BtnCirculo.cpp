@@ -1,6 +1,7 @@
 #include "btnCirculo.h"
 #include "ofMain.h"
 
+escena escenas;
 
 void boton::setup() {
 	esActivo = true;
@@ -9,6 +10,8 @@ void boton::setup() {
 
 void boton::setup(escena _escena, string _texto, ofTrueTypeFont _typo) {
 
+	Relx = 0;
+	Rely = 0;
 	texto = _texto;
 	typo = _typo;
 	miescena = _escena;
@@ -16,20 +19,23 @@ void boton::setup(escena _escena, string _texto, ofTrueTypeFont _typo) {
 	ofRegisterMouseEvents(this);
 }
 
+void boton::update(int _x, int _y) {
+	Relx = _x;
+	Rely = _y;
+}
 
 void boton::draw(int _x, int _y, int _r) {
 	radio = _r;
-	x =_x;
-	y =_y;
-	
+	Absx =_x;
+	Absy =_y;
 
 	ofRectangle bounds = typo.getStringBoundingBox(texto, 0, 0);
 
 	ofPushStyle();
 		ofSetColor(color);
-		ofCircle(x,y,radio);
+		ofCircle(Relx+Absx,Rely+Absy,radio);
 		ofSetColor(ofColor::black);
-		typo.drawString(texto,x-bounds.width/2,y+bounds.height/2);
+		typo.drawString(texto,(Relx+Absx)-bounds.width/2,(Rely+Absy)+bounds.height/2);
 	ofPopStyle();
 	
 }
@@ -53,15 +59,20 @@ void boton::mouseReleased(ofMouseEventArgs & args){
 
 
 bool boton::dentro(float _x, float _y) {
-	return(ofVec2f(_x,_y).distance(ofVec2f(x,y)) < radio);
+	return(ofVec2f(_x,_y).distance(ofVec2f(Relx + Absx,Rely + Absy)) < radio);
 }
 
-void boton::desactivar() {
-	if(!esActivo) 
-		ofUnregisterMouseEvents(this);
-}
 
-void boton::activar() {
-	if(esActivo) 
+void boton::estados(bool _estados) {
+
+	if(_estados){
+		color = interf.cReleased();
 		ofRegisterMouseEvents(this);
+	} else {
+		color = interf.cDisable();
+		ofUnregisterMouseEvents(this);
+	}
+
 }
+
+

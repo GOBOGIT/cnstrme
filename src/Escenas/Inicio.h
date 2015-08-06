@@ -5,6 +5,7 @@
 
 
 
+
 class Inicio {
 
 private:
@@ -18,9 +19,9 @@ public:
 	
 	void draw(int _r, int _g, int _b);
 	
-	void desactivar();
-	void activar();
+
 	void iniciar();
+	void estados(bool);
 
 	unsigned delay;
 	unsigned duration;
@@ -28,6 +29,8 @@ public:
 
 	boton BtnInicio;
 	ofTrueTypeFont typo;
+
+
 
 	ofxTween animImagenInicio;
 	ofxEasingElastic easingelastic;

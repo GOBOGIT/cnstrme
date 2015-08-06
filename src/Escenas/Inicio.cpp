@@ -1,7 +1,6 @@
 
 #include "Inicio.h"
 #include "../ofApp.h"
-//#include "../interface.h"
 
 
 
@@ -19,7 +18,7 @@ void Inicio::iniciar() {
 	ofLoadImage(imagen, "imagenInicio.png");
 	// boton
 	BtnInicio.setup(principal, "INICIAR",typo);
-	
+
 }
 
 
@@ -27,15 +26,16 @@ void Inicio::draw(int _r, int _g, int _b) {
 	ofBackground(_r, _g, _b);
 	imagen.draw((ofGetWidth()/2 )- imagen.getWidth()/2, ((ofGetHeight()/2) - imagen.getHeight()/2)-animImagenInicio.update());
 	BtnInicio.draw((ofGetWidth()/2 ), (ofGetHeight()/2) +  150,50);
+
+
 }
 
 
-void Inicio::desactivar(){
-	BtnInicio.desactivar();
-}
+void Inicio::estados(bool _estado) {
 
-void Inicio::activar(){
-	delay = 0;
-	animImagenInicio.setParameters(7,easingelastic,ofxTween::easeOut, 70,+100,duration,delay);
-	BtnInicio.activar();
+	if(_estado){
+		delay = 0;
+		animImagenInicio.setParameters(7,easingelastic,ofxTween::easeOut, 70,+100,duration,delay);
+	}
+
 }

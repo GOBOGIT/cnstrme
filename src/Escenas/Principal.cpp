@@ -4,10 +4,6 @@
 void Principal::iniciar() {
 
 
-	// carga fuente
-	typo.loadFont("OCRAStd.otf", 10, true, false, true);
-	typo.setLineHeight(18.0f);
-	typo.setLetterSpacing(1.02);
 	// setup de la camara
 	cam.setPosition(ofPoint(ofGetWidth()/2, ofGetHeight()/2, 700));
 
@@ -15,10 +11,9 @@ void Principal::iniciar() {
 	// importar desde Blender con eje -Z
 	modelo.loadModel("modelo.3ds", true);
 
+	//carga guiEstatico
+	guiEstatico.setup();
 
-	//inicializa los botones
-	BtnRegresaInicio.setup(inicio, "INICIO",typo);
-	BtnAyuda.setup(ayuda,"AYUDA",typo);
 }
 
 
@@ -31,25 +26,21 @@ void Principal::draw(int _r, int _g, int _b) {
 			modelo.draw(OF_MESH_WIREFRAME);
 		ofPopMatrix();
 	cam.end();
-    
-	BtnRegresaInicio.draw(100,ofGetHeight() - 100,50);
-	BtnAyuda.draw( ofGetWidth() -100,ofGetHeight() - 100,50);
+
+	guiEstatico.draw(ofGetWindowWidth()/2,ofGetWindowHeight()/2, 200,400);
 
 }
 
 
+void Principal::estados(bool _estado){
 
-void Principal::desactivar() {
-	BtnRegresaInicio.desactivar();
-	BtnAyuda.desactivar();
-	cam.disableMouseInput();
+	if(_estado) {
+		cam.enableMouseInput();
+	} else {
+		cam.disableMouseInput();
+	}
 }
 
-void Principal::activar() {
-	BtnRegresaInicio.activar();
-	BtnAyuda.activar();
-	cam.enableMouseInput();
-}
 
 
 

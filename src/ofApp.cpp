@@ -1,6 +1,5 @@
 #include "ofApp.h"
 
-escena escenas;
 
 //--------------------------------------------------------------
 
@@ -19,6 +18,11 @@ void ofApp::setup(){
 	// define la escena inicial
 	escenas = inicio;	 
 	escenaSel = inicio;	
+
+
+	//GUI escenas
+	guiEscenas.setup();
+
 }
 
 //--------------------------------------------------------------
@@ -26,23 +30,14 @@ void ofApp::update(){
 
 	if(escenaSel !=escenas) {
 		switch(escenas) {
-			case inicio:
-				escenaInicial.activar();
-				escenaPrincipal.desactivar();
-				 break;
-			case principal:
-				cout << "entrainicio" <<endl;
-				escenaInicial.desactivar();
-				escenaAyuda.desactivar();
-				escenaPrincipal.activar();
-				break;
-			case ayuda:
-				escenaPrincipal.desactivar();
-				escenaAyuda.activar();
-				break;
+			case inicio:	estadosEscenas(1,0,0);	break;
+			case principal:	estadosEscenas(0,1,0);	break;
+			case ayuda:		estadosEscenas(0,0,1);	break;
 		}
+	
 		escenaSel = escenas;
 	}
+	guiEscenas.update(escenas);
 
 }
 
@@ -50,15 +45,19 @@ void ofApp::update(){
 void ofApp::draw(){
 	
 	switch(escenas) {
-		case inicio: 
-			escenaInicial.draw(230,230,230); 
-			break;
-		case principal: 
-			escenaPrincipal.draw(230,230,230);
-			break;
-		case ayuda: escenaAyuda.draw(230,230,230);
-			break;
+		case inicio:	escenaInicial.draw(230,230,230);	break;
+		case principal:	escenaPrincipal.draw(230,230,230);	break;
+		case ayuda:		escenaAyuda.draw(230,230,230);		break;
 	}
+
+	if(escenas != inicio)	guiEscenas.draw(ofGetWidth()/2,ofGetHeight());
+}
+
+
+void ofApp::estadosEscenas(bool _a, bool _b, bool _c) {
+	escenaInicial.estados(_a);
+	escenaPrincipal.estados(_b);
+	escenaAyuda.estados(_c);
 }
 
 

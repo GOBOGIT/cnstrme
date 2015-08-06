@@ -107,6 +107,8 @@
     <ClCompile Include="src\Escenas\Inicio.cpp" />
     <ClCompile Include="src\Escenas\Principal.cpp" />
     <ClCompile Include="src\Gui\BtnCirculo.cpp" />
+    <ClCompile Include="src\Gui\GuiEscenas.cpp" />
+    <ClCompile Include="src\Gui\GuiEstaticos.cpp" />
     <ClCompile Include="src\Interface.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
@@ -133,6 +135,8 @@
     <ClInclude Include="src\Escenas\Inicio.h" />
     <ClInclude Include="src\Escenas\Principal.h" />
     <ClInclude Include="src\Gui\BtnCirculo.h" />
+    <ClInclude Include="src\Gui\GuiEscenas.h" />
+    <ClInclude Include="src\Gui\GuiEstaticos.h" />
     <ClInclude Include="src\interface.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.h" />
