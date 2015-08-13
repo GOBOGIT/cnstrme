@@ -1,6 +1,9 @@
 #include "Principal.h"
 
 
+// desde extern ofapp
+extern Globales globales;
+
 void Principal::iniciar() {
 
 
@@ -11,9 +14,20 @@ void Principal::iniciar() {
 	// importar desde Blender con eje -Z
 	modelo.loadModel("modelo.3ds", true);
 
-	//carga guiEstatico
-	guiEstatico.setup();
+	botonPanel.setup("Panel",0);
+	botonPanelActivo = true;
 
+
+	// setup del contenedor
+	guiEstatico.setup(400,400, "ESTATICO");
+	// inicializa cajas
+	cajaTxt = cajaTexto(400,100, "Porcentaje de llamadas totales\n por números de clicks");
+	cajaImg = cajaImagen(400,400, globales.imagenEstaticos);
+	// envia cajas a contenedor
+	guiEstatico.cajaTexto(cajaTxt.FboCajaTexto);
+	guiEstatico.cajaImagen(cajaImg.FboCajaImagen);
+
+	
 }
 
 
@@ -27,19 +41,53 @@ void Principal::draw(int _r, int _g, int _b) {
 		ofPopMatrix();
 	cam.end();
 
-	guiEstatico.draw(ofGetWindowWidth()/2,ofGetWindowHeight()/2, 200,400);
+	botonPanel.update(100,ofGetWindowHeight() -200);
+	botonPanel.draw(0,0, 50);
 
+	if(!botonPanelActivo)
+		guiEstatico.draw(ofGetWidth() - 450,50);
+
+	update();
 }
 
 
-void Principal::estados(bool _estado){
+void Principal::update(){
 
-	if(_estado) {
-		cam.enableMouseInput();
+	if(botonPanelActivo){
+		if(botonPanel.getter()) {
+			botonPanelActivo = false;
+			botonPanel.setter(false);
+		}
+		botonPanel.estados(true);
 	} else {
+		botonPanel.estados(false);
+		if(guiEstatico.botonSalir.getter()){
+			guiEstatico.botonSalir.setter(false);
+			botonPanelActivo = true;
+		}
+	}
+
+	// revisar, problemas con el mouse
+	if(guiEstatico.getter()) {
+		cout << "entra disable" << endl;
 		cam.disableMouseInput();
 	}
+	else
+		cam.enableMouseInput(); 
+
 }
+
+void Principal::activar() {
+	botonPanel.estados(true);
+	cam.enableMouseInput(); 
+
+}
+void Principal::desactivar() {
+	botonPanel.estados(false);
+	cam.disableMouseInput();
+
+}
+
 
 
 

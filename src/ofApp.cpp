@@ -5,7 +5,9 @@
 
 void ofApp::setup(){
 
-	
+	// carga assets
+	globales.assets(); 
+
 	// escenas
 	escenaPrincipal.iniciar();
 	escenaAyuda.iniciar();
@@ -16,10 +18,8 @@ void ofApp::setup(){
 	ofSetCircleResolution(64);
 
 	// define la escena inicial
-	escenas = inicio;	 
-	escenaSel = inicio;	
-
-
+	escenas = inicio;
+	escenaSel = inicio;
 	//GUI escenas
 	guiEscenas.setup();
 
@@ -28,16 +28,21 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
 
-	if(escenaSel !=escenas) {
-		switch(escenas) {
-			case inicio:	estadosEscenas(1,0,0);	break;
-			case principal:	estadosEscenas(0,1,0);	break;
-			case ayuda:		estadosEscenas(0,0,1);	break;
-		}
-	
-		escenaSel = escenas;
+
+	if(escenaInicial.BtnInicio.getter() || guiEscenas.BtnInicio.getter()){
+		selEscena(1);
+		escenaInicial.BtnInicio.setter(false);
+		guiEscenas.BtnInicio.setter(false);
 	}
-	guiEscenas.update(escenas);
+	if(guiEscenas.BtnRegresaInicio.getter()){
+		selEscena(0);
+		guiEscenas.BtnRegresaInicio.setter(false);
+	}
+	if(guiEscenas.BtnAyuda.getter()){
+		selEscena(2);
+		guiEscenas.BtnAyuda.setter(false);
+	}
+	guiEscenas.update();
 
 }
 
@@ -45,20 +50,41 @@ void ofApp::update(){
 void ofApp::draw(){
 	
 	switch(escenas) {
-		case inicio:	escenaInicial.draw(230,230,230);	break;
+		case inicio:	escenaInicial.draw(200,200,200);	break;
 		case principal:	escenaPrincipal.draw(230,230,230);	break;
 		case ayuda:		escenaAyuda.draw(230,230,230);		break;
 	}
-
 	if(escenas != inicio)	guiEscenas.draw(ofGetWidth()/2,ofGetHeight());
 }
 
 
+void ofApp::selEscena(int _numEscena) {
+
+if(escenaSel !=_numEscena) {
+	switch(_numEscena){
+		case 0: escenas = inicio;
+			estadosEscenas(1,0,0);
+			guiEscenas.estados(0,0,0,"inc");
+			break;
+		case 1: escenas = principal;
+			estadosEscenas(0,1,0);
+			guiEscenas.estados(1,0,1,"pri");
+			break;
+		case 2: escenas = ayuda; 
+			estadosEscenas(0,0,1);
+			guiEscenas.estados(1,1,0,"ayu");
+			break;
+	}
+	escenaSel = escenas;
+}
+}
+
 void ofApp::estadosEscenas(bool _a, bool _b, bool _c) {
 	escenaInicial.estados(_a);
-	escenaPrincipal.estados(_b);
+	_b? escenaPrincipal.activar() : escenaPrincipal.desactivar();
 	escenaAyuda.estados(_c);
 }
+
 
 
 void ofApp::keyPressed(int key){}

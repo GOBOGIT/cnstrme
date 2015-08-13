@@ -9,26 +9,20 @@ void GuiEscenas::setup() {
 	POSY = 100;
 	LARGO = 300;
 
-	escenaSel = inicio;
-	// en caso de que pantalla inicial se "INICIO"
-	estados(0,0,0);
-	// ejecuta la animación por primera vez
-	animacion();
-
-	// carga fuente
-	typo.loadFont("OCRAStd.otf", 10, true, false, true);
-	typo.setLineHeight(18.0f);
-	typo.setLetterSpacing(1.02);
+	
+	a = b = "inic";
+	estados(0,0,0, a);
 
 	//botones
-	BtnInicio.setup(principal, "ESCENA 3D",typo);
-	BtnRegresaInicio.setup(inicio, "INICIO",typo);
-	BtnAyuda.setup(ayuda,"AYUDA",typo);
+	BtnInicio.setup("ESCENA 3D",0);
+	BtnRegresaInicio.setup( "INICIO",0);
+	BtnAyuda.setup("AYUDA",0);
 
 }
 
 void GuiEscenas::draw(float _x, float _y) {
 
+	
 	// posicion de la caja
 	x = _x - LARGO / 2;
 	if(!estado) 
@@ -46,43 +40,34 @@ void GuiEscenas::draw(float _x, float _y) {
 
 }
 
-void GuiEscenas::update(escena _escena) {
+void GuiEscenas::update() {
 
-
-	// necesario para actualizar coordenadas del listener
 	BtnRegresaInicio.update(x,y);
 	BtnInicio.update(x,y);
 	BtnAyuda.update(x,y);
-	
-	if(escenaSel !=escenas) {
-		switch(_escena) {
-			case inicio: 
-				estados(0,0,0);
-				estado = true;
-				break;
-			case principal:
-				estados(1,0,1);
-				if(estado) animacion();
-				break;
-			case ayuda: 
-				estados(1,1,0);
-				estado = false;
-				break;
-		}
-	escenaSel = escenas;
+			
+	if(a != b){
+			if(a == "inc") estado = true;
+			if((a=="pri") && (estado)) animacion();
+			if(a =="ayu") estado = false;
+	b = a;
 	}
+
 }
 
 void GuiEscenas::animacion() {
+	cout << "entraanim" << endl;
 	animGuiLinear.setParameters(2,easinglinear,ofxTween::easeOut, 0,POSY,duration,delay);
 
 }
 
-void GuiEscenas::estados(bool _a, bool _b, bool _c) {
+void GuiEscenas::estados(bool _a, bool _b, bool _c, string _escena) {
+	
+	a = _escena;
+
 	BtnRegresaInicio.estados(_a);
 	BtnInicio.estados(_b);
 	BtnAyuda.estados(_c);
 }
-
 
 

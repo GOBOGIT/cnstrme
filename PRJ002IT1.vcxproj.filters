@@ -28,7 +28,6 @@
     <ClCompile Include="src\Gui\BtnCirculo.cpp">
       <Filter>src\Gui</Filter>
     </ClCompile>
-    <ClCompile Include="src\Interface.cpp" />
     <ClCompile Include="..\..\..\addons\ofxTween\src\ofxTween.cpp">
       <Filter>addons\ofxTween\src</Filter>
     </ClCompile>
@@ -77,6 +76,18 @@
     <ClCompile Include="src\Gui\GuiEstaticos.cpp">
       <Filter>src\Gui</Filter>
     </ClCompile>
+    <ClCompile Include="src\Cajas\cajaTexto.cpp">
+      <Filter>src\Cajas</Filter>
+    </ClCompile>
+    <ClCompile Include="src\estaticos.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cajas\cajaImagen.cpp">
+      <Filter>src\Cajas</Filter>
+    </ClCompile>
+    <ClCompile Include="src\globales.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -117,6 +128,9 @@
     </Filter>
     <Filter Include="addons\ofxTween\src\Easings">
       <UniqueIdentifier>{a28eec2a-f2dd-4372-8dd4-c462d2502629}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Cajas">
+      <UniqueIdentifier>{f984c3c8-94e7-4a10-9472-e309e99728f1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -279,7 +293,6 @@
     <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingSine.h">
       <Filter>addons\ofxTween\src\Easings</Filter>
     </ClInclude>
-    <ClInclude Include="src\interface.h" />
     <ClInclude Include="src\Gui\GuiEscenas.h">
       <Filter>src\Gui</Filter>
     </ClInclude>
@@ -288,6 +301,18 @@
     </ClInclude>
     <ClInclude Include="src\Gui\GuiEstaticos.h">
       <Filter>src\Gui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cajas\cajaTexto.h">
+      <Filter>src\Cajas</Filter>
+    </ClInclude>
+    <ClInclude Include="src\estaticos.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cajas\cajaImagen.h">
+      <Filter>src\Cajas</Filter>
+    </ClInclude>
+    <ClInclude Include="src\globales.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

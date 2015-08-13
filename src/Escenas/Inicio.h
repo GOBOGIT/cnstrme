@@ -3,9 +3,6 @@
 #include "ofEvents.h"
 #include "../Gui/BtnCirculo.h"
 
-
-
-
 class Inicio {
 
 private:
@@ -23,14 +20,16 @@ public:
 	void iniciar();
 	void estados(bool);
 
+	bool click;
+	bool getter();
+	void setter(bool);
+
 	unsigned delay;
 	unsigned duration;
 
 
 	boton BtnInicio;
 	ofTrueTypeFont typo;
-
-
 
 	ofxTween animImagenInicio;
 	ofxEasingElastic easingelastic;

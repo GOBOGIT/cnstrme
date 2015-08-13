@@ -1,20 +1,29 @@
 #pragma once
-#include "ofMain.h"
+
 #include "ofxTween.h"
-#include "../interface.h"
-
-
+#include "../globales.h"
 
 class boton {
 
+private:
+
+	bool estaDentro;
+	string texto;
+	ofColor color;
+
+	int tipoBoton;
+	int posTextoX;
+	int posTextoY;
+	int Relx, Rely, radio;
+	int Absx, Absy;
+	int ancho, largo;
 
 public:
 
-	void setup();
-	void setup(escena, string, ofTrueTypeFont);
+	void setup(string, int);
 	void update(int,int);
-	void draw(int,int,int);
-	
+	void draw(int,int,int);		// circulo: pos y radio
+	void draw(int,int,int,int); //  rectángulo: pos, largo y ancho
 
 	ofEvent <string> evento;
 
@@ -22,23 +31,13 @@ public:
     void mouseDragged(ofMouseEventArgs & args);
 	void mousePressed(ofMouseEventArgs & args);
     void mouseReleased(ofMouseEventArgs & args);
-
-	int Relx, Rely, radio;
-	int Absx, Absy;
 	
 	bool dentro(float,float);
-	bool esActivo;
 
 	void estados(bool);
-
-	string texto;
-	ofColor color;
-	escena miescena;
-
-
+	bool getter();
+	void setter(bool);
 
 	ofTrueTypeFont typo;
-	Interf interf;
-
 
 };

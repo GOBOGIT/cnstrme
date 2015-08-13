@@ -1,11 +1,16 @@
 #pragma once
 
 #include "ofMain.h"
+#include "Globales.h"
 #include "Escenas\Inicio.h"
 #include "Escenas\Principal.h"
 #include "Escenas\Ayuda.h"
 #include "Gui/GuiEscenas.h"
+#include "estaticos.h"
 
+
+extern Globales globales;
+extern estaticos estatico;
 
 class ofApp : public ofBaseApp {
 
@@ -25,14 +30,18 @@ class ofApp : public ofBaseApp {
 		void gotMessage(ofMessage msg);
 
 
+		enum esc {inicio, principal, ayuda} escenas;
+		esc escenaSel;
+
 		void estadosEscenas(bool, bool, bool);
+		void selEscena(int);
 
 		Inicio escenaInicial;
 		Principal escenaPrincipal;
 		Ayuda escenaAyuda;
-
-		escena escenaSel;
 		GuiEscenas guiEscenas;
+
+		
 
 };
 
