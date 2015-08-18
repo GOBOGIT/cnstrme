@@ -14,9 +14,9 @@ void GuiEscenas::setup() {
 	estados(0,0,0, a);
 
 	//botones
-	BtnInicio.setup("ESCENA 3D",0);
-	BtnRegresaInicio.setup( "INICIO",0);
-	BtnAyuda.setup("AYUDA",0);
+	BtnInicio.setup("ESCENA 3D",0, "verde");
+	BtnRegresaInicio.setup( "INICIO",0,"verde");
+	BtnAyuda.setup("AYUDA",0,"verde");
 
 }
 

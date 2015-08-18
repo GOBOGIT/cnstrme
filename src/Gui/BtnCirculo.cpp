@@ -6,11 +6,13 @@
 // desde extern en ofapp
 extern Globales globales;
 
-void boton::setup(string _texto, int  _tipo) {
+void boton::setup(string _texto, int  _tipo, string _colorBoton) {
 
 	Relx = 0;
 	Rely = 0;
 	tipoBoton = _tipo;
+	escala = 1;
+	colorBoton = _colorBoton;
 
 	typo.setLineHeight(18.0f); 
  	typo.setLetterSpacing(1.02); 
@@ -18,7 +20,7 @@ void boton::setup(string _texto, int  _tipo) {
 	texto = _texto;
 	typo = globales.typo;
 	estaDentro = false;
-	color = globales.cReleased();
+	color = globales.paqueteColores[colorBoton]["normal"];
 	ofRegisterMouseEvents(this);
 }
 
@@ -36,13 +38,17 @@ void boton::draw(int _x, int _y, int _r) {
 
 
 	ofRectangle bounds = typo.getStringBoundingBox(texto, 0, 0);
-
-	ofPushStyle();
-		ofSetColor(color);
-		ofCircle(Relx+Absx,Rely+Absy,radio);
-		ofSetColor(ofColor::black);
-		typo.drawStringAsShapes(texto,(Relx+Absx)-bounds.width/2,(Rely+Absy)+bounds.height/2);
-	ofPopStyle();
+	
+	glPushMatrix();
+		ofPushStyle();
+			ofSetColor(color);
+			glTranslatef(Relx+Absx,Rely+Absy,0);
+			glScalef(escala, escala,0);
+			ofCircle(0,0,radio);
+			ofSetColor(ofColor::black);
+			typo.drawStringAsShapes(texto,-bounds.width/2,bounds.height/2);
+		ofPopStyle();
+	glPopMatrix();
 	
 }
 
@@ -71,17 +77,20 @@ void boton::mouseMoved(ofMouseEventArgs & args){}
 void boton::mouseDragged(ofMouseEventArgs & args){}
 void boton::mousePressed(ofMouseEventArgs & args){
 	//ofNotifyEvent(evento, texto,  this);
-	if((dentro(args.x, args.y)) && !estaDentro){
-		color = globales.cClick();
-		estaDentro = true;
+	if((dentro(args.x, args.y))){
+		color = globales.paqueteColores[colorBoton]["click"];
+		escala = 0.9;
+		estaDentro = false;
 	}
 	
 }
 void boton::mouseReleased(ofMouseEventArgs & args){
 
-	if((dentro(args.x, args.y)) && estaDentro){
-		color = globales.cReleased();
-		estaDentro = false;
+	if((dentro(args.x, args.y)) && !estaDentro){
+		color = globales.paqueteColores[colorBoton]["normal"];
+		escala = 1;
+		estaDentro = true;
+		
 	}
 }
 
@@ -99,10 +108,11 @@ bool boton::dentro(float _x, float _y) {
 void boton::estados(bool _estados) {
 
 	if(_estados){
-		color = globales.cReleased();
+		color = globales.paqueteColores[colorBoton]["normal"];
+		
 		ofRegisterMouseEvents(this);
 	} else {
-		color = globales.cDisable();
+	  color = globales.paqueteColores[colorBoton]["disable"];
 		ofUnregisterMouseEvents(this);
 	}
 

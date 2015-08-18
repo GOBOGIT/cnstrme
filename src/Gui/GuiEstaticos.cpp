@@ -3,27 +3,42 @@
 // desde extern ofApp
 extern Globales globales;
 
-void GuiEstaticos::setup(int _largo, int _ancho, string _titulo){
+void GuiEstaticos::setup(int _largo, int _ancho, string _titulo, bool _btnSalida){
 
 	largo = _largo;
-	//ancho = _ancho;
-	estaDentro = false;
-	ofRegisterMouseEvents(this);
-	botonSalir.setup("Salir",1);
-	titulo = globales.typo;
+	btnSalida = _btnSalida;
 	textoTitulo = _titulo;
-	barra = 40;
+	estaDentro = false;
+	iniciaAnim = false;
 	
+	ofRegisterMouseEvents(this);
+	
+	if(btnSalida)	botonSalir.setup("X",1, "rojo");
+	titulo = globales.typo;
+	
+	barra = 40;
+	anchoFinal = barra;
+	
+	posyFila.push_back(barra);
+
+	for(unsigned int i = 0; i < filas.size(); i++) {
+		anchoFinal += filas[i].getHeight();
+		posyFila.push_back(anchoFinal);
+	}
 };
 
 
 void GuiEstaticos::draw(int _posx, int _posy){
 
 	posx = _posx;
-	posy = _posy;
-	
-	anchoFinal = barra + FboTexto.getHeight() + FboImagen.getHeight();
-	
+	if(iniciaAnim) {
+		posy = _posy + animacionContenedor.update();
+		if(animacionContenedor.isCompleted())
+			iniciaAnim = false;
+	}
+
+	//anchoFinal = barra + FboTexto.getHeight() + FboImagen.getHeight() + FboVideo.getHeight();
+	//unsigned int anterior;
 
 	ofPushMatrix();
 	ofTranslate(posx,posy);
@@ -35,57 +50,57 @@ void GuiEstaticos::draw(int _posx, int _posy){
 			titulo.drawStringAsShapes(textoTitulo,10,barra-12);
 			ofSetColor(ofColor::white);
 			ofRect(0,barra,largo,anchoFinal);
-
-			FboTexto.draw(0,barra,largo, anchoCajaTexto);
-			FboImagen.draw(0,barra + FboTexto.getHeight(),largo, anchoCajaImagen);
-		ofPopStyle();
-
-	ofPopMatrix();
-
-	
 			
-	botonSalir.update(posx,posy);
-	botonSalir.draw(0,anchoFinal,largo,50);
+
+			for(unsigned int i = 0; i < filas.size(); i++) {
+				filas[i].draw(0,posyFila[i], largo, filas[i].getHeight());
+			}
+			
+		ofPopStyle();
+	ofPopMatrix();
+	
+	if(btnSalida) {
+		botonSalir.update(posx,posy);
+		botonSalir.draw(0,posyFila.back(),largo,50);
+	}
 
 }
-
 void GuiEstaticos::update(){};
-void GuiEstaticos::estados(bool _estado){};
 
 
 
-void GuiEstaticos::cajaTexto(ofFbo _Fbo) {
-	FboTexto = _Fbo;
-	anchoCajaTexto = FboTexto.getHeight();
 
-}
-
-
-void GuiEstaticos::cajaImagen(ofFbo _Fbo) {
-	FboImagen = _Fbo;
-	anchoCajaImagen = FboImagen.getHeight();
-
+void GuiEstaticos::fila(ofFbo _Fbo) {
+	filas.push_back(_Fbo);
 }
 
 
 void GuiEstaticos::mouseMoved(ofMouseEventArgs & args){}
 void GuiEstaticos::mouseDragged(ofMouseEventArgs & args){}
 void GuiEstaticos::mousePressed(ofMouseEventArgs & args){
-		if(dentro(args.x, args.y)){
-			cout << "esta dentro" << endl;
-			estaDentro = true;
-	}
+		if(dentro(args.x, args.y))	estaDentro = true;
+
 }
 void GuiEstaticos::mouseReleased(ofMouseEventArgs & args){
-		if(dentro(args.x, args.y))
-			estaDentro = false;
+		if(dentro(args.x, args.y))	estaDentro = false;
 }
 
 bool GuiEstaticos::dentro(float _x, float _y) {
-	// rectangulo
 	return ((_x > posx) && (_x < posx + largo) && (_y > posy) && (_y < posy + anchoFinal));
 }
 
 bool GuiEstaticos::getter() {
 	return estaDentro;
+}
+
+void GuiEstaticos::estados(bool _estado){
+
+if(_estado)
+	iniciaAnim = true;
+	animacion();
+
+};
+
+void GuiEstaticos::animacion() {
+	animacionContenedor.setParameters(1,easinglinear,ofxTween::easeOut, 0,-10,200,0);
 }

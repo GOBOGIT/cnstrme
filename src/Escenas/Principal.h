@@ -30,6 +30,7 @@ public:
 
 	ofEasyCam cam;
 	ofxAssimpModelLoader modelo;
+	ofLight iluminacion;
 
 	boton botonPanel;
 

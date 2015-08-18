@@ -7,18 +7,20 @@ class Globales {
 	private:
 
 		static ofColor color;
+
+
 		
 	public:
 
-		static ofColor cClick();
-		static ofColor cReleased();
-		static ofColor cDisable();
 		static ofColor bgGris();
 
-
 		static ofTrueTypeFont typo;
-		static 	ofTexture imagenEstaticos;
-	
+		static ofTrueTypeFont typoTitulo;
+		static ofTexture imagenEstaticos;
+		static ofVideoPlayer videoAnim;
+
+		static map<string, map<string, ofColor>> paqueteColores;
+
 		static void assets();
 	
 };

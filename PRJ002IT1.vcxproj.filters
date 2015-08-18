@@ -79,14 +79,20 @@
     <ClCompile Include="src\Cajas\cajaTexto.cpp">
       <Filter>src\Cajas</Filter>
     </ClCompile>
-    <ClCompile Include="src\estaticos.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\Cajas\cajaImagen.cpp">
       <Filter>src\Cajas</Filter>
     </ClCompile>
     <ClCompile Include="src\globales.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Gui\Titulo.cpp">
+      <Filter>src\Gui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cajas\cajaAnim.cpp">
+      <Filter>src\Cajas</Filter>
+    </ClCompile>
+    <ClCompile Include="src\3D\3Dloader.cpp">
+      <Filter>src\3D</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -131,6 +137,9 @@
     </Filter>
     <Filter Include="src\Cajas">
       <UniqueIdentifier>{f984c3c8-94e7-4a10-9472-e309e99728f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\3D">
+      <UniqueIdentifier>{c4307628-b017-451b-83bf-101aa1f0e098}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -305,14 +314,20 @@
     <ClInclude Include="src\Cajas\cajaTexto.h">
       <Filter>src\Cajas</Filter>
     </ClInclude>
-    <ClInclude Include="src\estaticos.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\Cajas\cajaImagen.h">
       <Filter>src\Cajas</Filter>
     </ClInclude>
     <ClInclude Include="src\globales.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Gui\Titulo.h">
+      <Filter>src\Gui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cajas\cajaAnim.h">
+      <Filter>src\Cajas</Filter>
+    </ClInclude>
+    <ClInclude Include="src\3D\3Dloader.h">
+      <Filter>src\3D</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

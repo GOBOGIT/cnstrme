@@ -1,11 +1,11 @@
 #include "Principal.h"
+#include "../3D/3DLoader.h"
 
 
 // desde extern ofapp
 extern Globales globales;
 
 void Principal::iniciar() {
-
 
 	// setup de la camara
 	cam.setPosition(ofPoint(ofGetWidth()/2, ofGetHeight()/2, 700));
@@ -14,32 +14,46 @@ void Principal::iniciar() {
 	// importar desde Blender con eje -Z
 	modelo.loadModel("modelo.3ds", true);
 
-	botonPanel.setup("Panel",0);
+	botonPanel.setup("panel",0, "verde");
 	botonPanelActivo = true;
 
-
 	// setup del contenedor
-	guiEstatico.setup(400,400, "ESTATICO");
+	
 	// inicializa cajas
 	cajaTxt = cajaTexto(400,100, "Porcentaje de llamadas totales\n por números de clicks");
 	cajaImg = cajaImagen(400,400, globales.imagenEstaticos);
 	// envia cajas a contenedor
-	guiEstatico.cajaTexto(cajaTxt.FboCajaTexto);
-	guiEstatico.cajaImagen(cajaImg.FboCajaImagen);
-
+	
+	guiEstatico.fila(cajaTxt.fbo);
+	guiEstatico.fila(cajaImg.FboCajaImagen);
+	guiEstatico.setup(400,400, "ESTATICO", true);
+	
+	
 	
 }
 
 
 void Principal::draw(int _r, int _g, int _b) {
-	ofBackground(_r, _g, _b);
+	ofBackgroundGradient(ofColor::white,globales.bgGris(), OF_GRADIENT_CIRCULAR);
+
+	//ILUMINACION
+	ofEnableBlendMode(OF_BLENDMODE_ALPHA);
+	ofEnableDepthTest();
+	iluminacion.enable();
+	
+	
+
 
 	cam.begin();
 		ofPushMatrix();
 			//http://www.openframeworks.cc/documentation/ofxAssimpModelLoader/ofxAssimpModelLoader.html
-			modelo.draw(OF_MESH_WIREFRAME);
+		modelo.draw(OF_MESH_FILL);
 		ofPopMatrix();
 	cam.end();
+
+	ofDisableDepthTest();
+	iluminacion.disable();
+	ofDisableLighting();
 
 	botonPanel.update(100,ofGetWindowHeight() -200);
 	botonPanel.draw(0,0, 50);
@@ -48,6 +62,8 @@ void Principal::draw(int _r, int _g, int _b) {
 		guiEstatico.draw(ofGetWidth() - 450,50);
 
 	update();
+
+	
 }
 
 
@@ -55,12 +71,14 @@ void Principal::update(){
 
 	if(botonPanelActivo){
 		if(botonPanel.getter()) {
+			guiEstatico.estados(true);
 			botonPanelActivo = false;
 			botonPanel.setter(false);
 		}
 		botonPanel.estados(true);
 	} else {
 		botonPanel.estados(false);
+		
 		if(guiEstatico.botonSalir.getter()){
 			guiEstatico.botonSalir.setter(false);
 			botonPanelActivo = true;
@@ -68,12 +86,8 @@ void Principal::update(){
 	}
 
 	// revisar, problemas con el mouse
-	if(guiEstatico.getter()) {
-		cout << "entra disable" << endl;
-		cam.disableMouseInput();
-	}
-	else
-		cam.enableMouseInput(); 
+	guiEstatico.getter()? cam.disableMouseInput() : cam.enableMouseInput(); 
+
 
 }
 

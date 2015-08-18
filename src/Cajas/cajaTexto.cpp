@@ -15,16 +15,16 @@ cajaTexto::cajaTexto(int _largo, int _ancho, string _texto) {
 	titulo.setLineHeight(18.0f); 
  	titulo.setLetterSpacing(1.02); 
 
-	FboCajaTexto.allocate(largo,ancho,GL_RGBA);
-	FboCajaTexto.begin();
+	fbo.allocate(largo,ancho,GL_RGBA);
+	fbo.begin();
 	ofPushStyle();
 		ofFill();
 		ofSetColor(globales.bgGris());
 		ofRect(0,0,largo,ancho);
 		ofSetColor(ofColor::black);
-		titulo.drawStringAsShapes(texto,20,50);
+		titulo.drawString(texto,20,50);
 		ofPopStyle();
-	FboCajaTexto.end();
+	fbo.end();
 }
 
 

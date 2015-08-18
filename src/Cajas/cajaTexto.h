@@ -15,7 +15,7 @@ public:
 	void draw();
 
 	string texto;
-	ofFbo FboCajaTexto;
+	ofFbo fbo;
 	ofTrueTypeFont titulo;
 
 };

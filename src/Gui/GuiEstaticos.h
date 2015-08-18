@@ -7,13 +7,32 @@
 class GuiEstaticos {
 
 
+private:
+
+	float posx;
+	float posy;
+	vector<unsigned int> posyFila;
+
+
+	int largo;
+	int anchoFinal;
+	int barra;
+	bool estaDentro;
+	bool iniciaAnim;
+	bool btnSalida;
+
+
 public:
 
-
-	void setup(int, int, string);
+	/** inicializa el contenedor
+		@param posicion x e y absolutos
+		@param titulo de la ventana
+		@param crear boton de salida? */
+	void setup(int, int, string, bool);
 	void draw(int,int);
 	void update();
 	void estados(bool);
+	void animacion();
 
 	ofEvent <string> evento;
 	void mouseMoved(ofMouseEventArgs & args);
@@ -22,26 +41,17 @@ public:
     void mouseReleased(ofMouseEventArgs & args);
 
 	bool dentro(float,float);
-	void cajaTexto(ofFbo);
-	void cajaImagen(ofFbo);
+	void fila(ofFbo);
+	vector<ofFbo> filas;
 
 	bool getter();
 	void setter(bool);
 
-	float posx;
-	float posy;
-
-	int largo;
-	//int ancho;
-	int anchoFinal;
-	int barra;
-
-	float anchoCajaTexto, anchoCajaImagen;
-
-	bool estaDentro;
 
 	boton botonSalir;
-	ofFbo FboTexto, FboImagen;
 	ofTrueTypeFont titulo;
 	string textoTitulo;
+
+	ofxTween animacionContenedor;
+	ofxEasingLinear easinglinear;
 };

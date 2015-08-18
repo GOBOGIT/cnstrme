@@ -6,11 +6,9 @@
 #include "Escenas\Principal.h"
 #include "Escenas\Ayuda.h"
 #include "Gui/GuiEscenas.h"
-#include "estaticos.h"
-
+#include "Gui\Titulo.h"
 
 extern Globales globales;
-extern estaticos estatico;
 
 class ofApp : public ofBaseApp {
 
@@ -40,6 +38,8 @@ class ofApp : public ofBaseApp {
 		Principal escenaPrincipal;
 		Ayuda escenaAyuda;
 		GuiEscenas guiEscenas;
+
+		Titulo titulo;
 
 		
 

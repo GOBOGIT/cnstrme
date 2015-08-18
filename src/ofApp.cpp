@@ -13,7 +13,7 @@ void ofApp::setup(){
 	escenaAyuda.iniciar();
 	escenaInicial.iniciar();
 	//varios
-	ofSetFrameRate(60);
+	//ofSetFrameRate(60);
 	ofTrueTypeFont::setGlobalDpi(72);
 	ofSetCircleResolution(64);
 
@@ -22,6 +22,9 @@ void ofApp::setup(){
 	escenaSel = inicio;
 	//GUI escenas
 	guiEscenas.setup();
+
+	// inicializa titulo
+	titulo = Titulo();
 
 }
 
@@ -33,6 +36,7 @@ void ofApp::update(){
 		selEscena(1);
 		escenaInicial.BtnInicio.setter(false);
 		guiEscenas.BtnInicio.setter(false);
+			titulo.setter("Principal");
 	}
 	if(guiEscenas.BtnRegresaInicio.getter()){
 		selEscena(0);
@@ -40,21 +44,32 @@ void ofApp::update(){
 	}
 	if(guiEscenas.BtnAyuda.getter()){
 		selEscena(2);
+		escenaAyuda.contenedorVideo.estados(true);
+		titulo.setter("Ayuda");
 		guiEscenas.BtnAyuda.setter(false);
 	}
 	guiEscenas.update();
+	titulo.update();
+	escenaAyuda.update();
 
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
 	
+
 	switch(escenas) {
 		case inicio:	escenaInicial.draw(200,200,200);	break;
 		case principal:	escenaPrincipal.draw(230,230,230);	break;
 		case ayuda:		escenaAyuda.draw(230,230,230);		break;
 	}
-	if(escenas != inicio)	guiEscenas.draw(ofGetWidth()/2,ofGetHeight());
+
+	if(escenas != inicio) {
+		guiEscenas.draw(ofGetWidth()/2,ofGetHeight());
+		titulo.draw();
+	}
+
+
 }
 
 
@@ -69,6 +84,7 @@ if(escenaSel !=_numEscena) {
 		case 1: escenas = principal;
 			estadosEscenas(0,1,0);
 			guiEscenas.estados(1,0,1,"pri");
+
 			break;
 		case 2: escenas = ayuda; 
 			estadosEscenas(0,0,1);

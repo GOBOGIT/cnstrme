@@ -1,5 +1,7 @@
-
 #include "Inicio.h"
+
+// desde extern ofapp
+extern Globales globales;
 
 void Inicio::iniciar() {
 
@@ -13,24 +15,19 @@ void Inicio::iniciar() {
 	ofLoadImage(imagen, "imagenInicio.png");
 	// boton
 	click = false;
-	BtnInicio.setup("INICIAR", 0);
+	BtnInicio.setup("INICIAR", 0, "verde");
 
 }
 
 void Inicio::draw(int _r, int _g, int _b) {
-	
-	ofColor colorOne;
  
-	colorOne.set (_r, _g, _b);
- 
-    ofBackgroundGradient(ofColor::white, colorOne, OF_GRADIENT_CIRCULAR);
+	ofBackgroundGradient(ofColor::white,globales.bgGris(), OF_GRADIENT_CIRCULAR);
 	
 	//ofBackground(_r, _g, _b);
 	imagen.draw((ofGetWidth()/2 )- imagen.getWidth()/2, ((ofGetHeight()/2) - imagen.getHeight()/2)-animImagenInicio.update());
 	BtnInicio.draw((ofGetWidth()/2 ), (ofGetHeight()/2) +  150,50);
 
 	if (BtnInicio.getter()){
-			cout << "click" << endl;
 			BtnInicio.setter(false);
 			click= true;
 		}

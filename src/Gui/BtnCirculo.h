@@ -17,10 +17,12 @@ private:
 	int Relx, Rely, radio;
 	int Absx, Absy;
 	int ancho, largo;
+	string colorBoton;
+	float escala;
 
 public:
 
-	void setup(string, int);
+	void setup(string, int, string);
 	void update(int,int);
 	void draw(int,int,int);		// circulo: pos y radio
 	void draw(int,int,int,int); //  rectángulo: pos, largo y ancho
