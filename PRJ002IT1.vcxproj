@@ -103,7 +103,7 @@
     <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingQuint.cpp" />
     <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingSine.cpp" />
     <ClCompile Include="..\..\..\addons\ofxTween\src\ofxTween.cpp" />
-    <ClCompile Include="src\3D\3Dloader.cpp" />
+    <ClCompile Include="src\3D\gestor3D.cpp" />
     <ClCompile Include="src\Cajas\cajaAnim.cpp" />
     <ClCompile Include="src\Cajas\cajaImagen.cpp" />
     <ClCompile Include="src\Cajas\cajaTexto.cpp" />
@@ -136,7 +136,7 @@
     <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingQuint.h" />
     <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingSine.h" />
     <ClInclude Include="..\..\..\addons\ofxTween\src\ofxTween.h" />
-    <ClInclude Include="src\3D\3Dloader.h" />
+    <ClInclude Include="src\3D\gestor3D.h" />
     <ClInclude Include="src\Cajas\cajaAnim.h" />
     <ClInclude Include="src\Cajas\cajaImagen.h" />
     <ClInclude Include="src\Cajas\cajaTexto.h" />

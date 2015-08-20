@@ -26,6 +26,8 @@ void ofApp::setup(){
 	// inicializa titulo
 	titulo = Titulo();
 
+
+
 }
 
 //--------------------------------------------------------------
@@ -56,7 +58,7 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-	
+
 
 	switch(escenas) {
 		case inicio:	escenaInicial.draw(200,200,200);	break;
@@ -68,7 +70,6 @@ void ofApp::draw(){
 		guiEscenas.draw(ofGetWidth()/2,ofGetHeight());
 		titulo.draw();
 	}
-
 
 }
 

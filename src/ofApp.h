@@ -41,8 +41,6 @@ class ofApp : public ofBaseApp {
 
 		Titulo titulo;
 
-		
-
 };
 
 

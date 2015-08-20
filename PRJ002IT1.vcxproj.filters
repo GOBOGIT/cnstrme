@@ -91,7 +91,7 @@
     <ClCompile Include="src\Cajas\cajaAnim.cpp">
       <Filter>src\Cajas</Filter>
     </ClCompile>
-    <ClCompile Include="src\3D\3Dloader.cpp">
+    <ClCompile Include="src\3D\gestor3D.cpp">
       <Filter>src\3D</Filter>
     </ClCompile>
   </ItemGroup>
@@ -326,7 +326,7 @@
     <ClInclude Include="src\Cajas\cajaAnim.h">
       <Filter>src\Cajas</Filter>
     </ClInclude>
-    <ClInclude Include="src\3D\3Dloader.h">
+    <ClInclude Include="src\3D\gestor3D.h">
       <Filter>src\3D</Filter>
     </ClInclude>
   </ItemGroup>

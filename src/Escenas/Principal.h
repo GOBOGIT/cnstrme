@@ -7,6 +7,7 @@
 #include "../Gui//BtnCirculo.h"
 #include "../Cajas/cajaTexto.h"
 #include "../Cajas/cajaImagen.h"
+#include "../3D/gestor3D.h"
 
 
 class Principal {
@@ -28,8 +29,11 @@ public:
 
 	bool botonPanelActivo;
 
-	ofEasyCam cam;
-	ofxAssimpModelLoader modelo;
+	//ofEasyCam cam;
+	//ofxAssimpModelLoader modelo;
+	//ofLight iluminacion;
+
+	gestor3D escena3D;
 	ofLight iluminacion;
 
 	boton botonPanel;
