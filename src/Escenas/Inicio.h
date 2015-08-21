@@ -1,7 +1,7 @@
 #pragma once
 #include "ofMain.h"
-#include "ofEvents.h"
-#include "../Gui/BtnCirculo.h"
+//#include "ofEvents.h"
+#include "../Gui/Boton.h"
 
 class Inicio {
 

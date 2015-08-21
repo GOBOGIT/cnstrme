@@ -25,9 +25,6 @@
     <ClCompile Include="src\Escenas\Principal.cpp">
       <Filter>src\Escenas</Filter>
     </ClCompile>
-    <ClCompile Include="src\Gui\BtnCirculo.cpp">
-      <Filter>src\Gui</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxTween\src\ofxTween.cpp">
       <Filter>addons\ofxTween\src</Filter>
     </ClCompile>
@@ -70,12 +67,6 @@
     <ClCompile Include="src\Gui\GuiEscenas.cpp">
       <Filter>src\Gui</Filter>
     </ClCompile>
-    <ClCompile Include="src\Escenas\Ayuda.cpp">
-      <Filter>src\Escenas</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Gui\GuiEstaticos.cpp">
-      <Filter>src\Gui</Filter>
-    </ClCompile>
     <ClCompile Include="src\Cajas\cajaTexto.cpp">
       <Filter>src\Cajas</Filter>
     </ClCompile>
@@ -93,6 +84,18 @@
     </ClCompile>
     <ClCompile Include="src\3D\gestor3D.cpp">
       <Filter>src\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Escenas\Galeria.cpp">
+      <Filter>src\Escenas</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Gui\Grid.cpp">
+      <Filter>src\Gui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Gui\Contenedor.cpp">
+      <Filter>src\Gui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Gui\Boton.cpp">
+      <Filter>src\Gui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -260,9 +263,6 @@
     <ClInclude Include="src\Escenas\Principal.h">
       <Filter>src\Escenas</Filter>
     </ClInclude>
-    <ClInclude Include="src\Gui\BtnCirculo.h">
-      <Filter>src\Gui</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxTween\src\ofxTween.h">
       <Filter>addons\ofxTween\src</Filter>
     </ClInclude>
@@ -305,12 +305,6 @@
     <ClInclude Include="src\Gui\GuiEscenas.h">
       <Filter>src\Gui</Filter>
     </ClInclude>
-    <ClInclude Include="src\Escenas\Ayuda.h">
-      <Filter>src\Escenas</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Gui\GuiEstaticos.h">
-      <Filter>src\Gui</Filter>
-    </ClInclude>
     <ClInclude Include="src\Cajas\cajaTexto.h">
       <Filter>src\Cajas</Filter>
     </ClInclude>
@@ -328,6 +322,18 @@
     </ClInclude>
     <ClInclude Include="src\3D\gestor3D.h">
       <Filter>src\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Escenas\Galeria.h">
+      <Filter>src\Escenas</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Gui\Grid.h">
+      <Filter>src\Gui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Gui\Contenedor.h">
+      <Filter>src\Gui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Gui\Boton.h">
+      <Filter>src\Gui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

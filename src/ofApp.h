@@ -4,7 +4,7 @@
 #include "Globales.h"
 #include "Escenas\Inicio.h"
 #include "Escenas\Principal.h"
-#include "Escenas\Ayuda.h"
+#include "Escenas\Galeria.h"
 #include "Gui/GuiEscenas.h"
 #include "Gui\Titulo.h"
 
@@ -28,7 +28,7 @@ class ofApp : public ofBaseApp {
 		void gotMessage(ofMessage msg);
 
 
-		enum esc {inicio, principal, ayuda} escenas;
+		enum esc {inicio, principal, galeria} escenas;
 		esc escenaSel;
 
 		void estadosEscenas(bool, bool, bool);
@@ -36,7 +36,7 @@ class ofApp : public ofBaseApp {
 
 		Inicio escenaInicial;
 		Principal escenaPrincipal;
-		Ayuda escenaAyuda;
+		Galeria escenaGaleria;
 		GuiEscenas guiEscenas;
 
 		Titulo titulo;

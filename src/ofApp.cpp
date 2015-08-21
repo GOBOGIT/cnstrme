@@ -10,7 +10,7 @@ void ofApp::setup(){
 
 	// escenas
 	escenaPrincipal.iniciar();
-	escenaAyuda.iniciar();
+	escenaGaleria.iniciar();
 	escenaInicial.iniciar();
 	//varios
 	//ofSetFrameRate(60);
@@ -44,15 +44,14 @@ void ofApp::update(){
 		selEscena(0);
 		guiEscenas.BtnRegresaInicio.setter(false);
 	}
-	if(guiEscenas.BtnAyuda.getter()){
+	if(guiEscenas.BtnGaleria.getter()){
 		selEscena(2);
-		escenaAyuda.contenedorVideo.estados(true);
-		titulo.setter("Ayuda");
-		guiEscenas.BtnAyuda.setter(false);
+		titulo.setter("galeria");
+		guiEscenas.BtnGaleria.setter(false);
 	}
 	guiEscenas.update();
 	titulo.update();
-	escenaAyuda.update();
+	escenaGaleria.update();
 
 }
 
@@ -63,7 +62,7 @@ void ofApp::draw(){
 	switch(escenas) {
 		case inicio:	escenaInicial.draw(200,200,200);	break;
 		case principal:	escenaPrincipal.draw(230,230,230);	break;
-		case ayuda:		escenaAyuda.draw(230,230,230);		break;
+		case galeria:	escenaGaleria.draw(230,230,230);		break;
 	}
 
 	if(escenas != inicio) {
@@ -87,9 +86,9 @@ if(escenaSel !=_numEscena) {
 			guiEscenas.estados(1,0,1,"pri");
 
 			break;
-		case 2: escenas = ayuda; 
+		case 2: escenas = galeria; 
 			estadosEscenas(0,0,1);
-			guiEscenas.estados(1,1,0,"ayu");
+			guiEscenas.estados(1,1,0,"gal");
 			break;
 	}
 	escenaSel = escenas;
@@ -99,7 +98,7 @@ if(escenaSel !=_numEscena) {
 void ofApp::estadosEscenas(bool _a, bool _b, bool _c) {
 	escenaInicial.estados(_a);
 	_b? escenaPrincipal.activar() : escenaPrincipal.desactivar();
-	escenaAyuda.estados(_c);
+	escenaGaleria.estados(_c);
 }
 
 

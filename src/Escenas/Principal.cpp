@@ -7,28 +7,19 @@ extern Globales globales;
 
 void Principal::iniciar() {
 
-	// setup de la camara
-	//cam.setPosition(ofPoint(ofGetWidth()/2, ofGetHeight()/2, 700));
-
-	// carga el modelo de ejemplo
-	// importar desde Blender con eje -Z
-	//modelo.loadModel("modelo.3ds", true);
-
 	escena3D.setup();
 
 	botonPanel.setup("panel",0, "verde");
 	botonPanelActivo = true;
 
-	// setup del contenedor
 	
 	// inicializa cajas
-	cajaTxt = cajaTexto(400,100, "Porcentaje de llamadas totales\n por números de clicks");
+	cajaTxt = cajaTexto(400,100, "Porcentaje de llamadas totales\npor numeros de clicks", ofColor::white, ofColor::black);
 	cajaImg = cajaImagen(400,400, globales.imagenEstaticos);
 	// envia cajas a contenedor
-	
 	guiEstatico.fila(cajaTxt.fbo);
 	guiEstatico.fila(cajaImg.FboCajaImagen);
-	guiEstatico.setup(400,400, "ESTATICO", true);
+	guiEstatico.setup(400,400, "ESTATICO", true, true);
 	
 	
 	
@@ -63,7 +54,7 @@ void Principal::update(){
 			guiEstatico.estados(true);
 			botonPanelActivo = false;
 			botonPanel.setter(false);
-			escena3D.setter("Cubo0", true);
+			escena3D.setter("cubo0", true);
 		}
 		botonPanel.estados(true);
 	} else {
@@ -73,7 +64,7 @@ void Principal::update(){
 		if(guiEstatico.botonSalir.getter()){
 			guiEstatico.botonSalir.setter(false);
 			botonPanelActivo = true;
-			escena3D.setter("Cubo0", false);
+			escena3D.setter("cubo0", false);
 		}
 	}
 

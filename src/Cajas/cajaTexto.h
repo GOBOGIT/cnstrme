@@ -6,11 +6,11 @@
 class cajaTexto {
 
 	int ancho, largo;
-
+	ofColor colorFondo, colorTexto;
 public:
 
 	cajaTexto() {};
-	cajaTexto(int,int, string);
+	cajaTexto(int,int, string, ofColor, ofColor);
 
 	void draw();
 

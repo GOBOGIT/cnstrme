@@ -1,10 +1,10 @@
 #pragma once
 
 #include "ofMain.h"
-#include "BtnCirculo.h"
+#include "Boton.h"
 #include "../globales.h"
 
-class GuiEstaticos {
+class Contenedor {
 
 
 private:
@@ -14,25 +14,31 @@ private:
 	vector<unsigned int> posyFila;
 
 
-	int largo;
-	int anchoFinal;
+
 	int barra;
 	bool estaDentro;
 	bool iniciaAnim;
 	bool btnSalida;
+	bool b_barra;
 
 
 public:
 
+
+
 	/** inicializa el contenedor
 		@param posicion x e y absolutos
 		@param titulo de la ventana
-		@param crear boton de salida? */
-	void setup(int, int, string, bool);
+		@param crear boton de salida? 
+		@param activar barra?	*/
+	void setup(int, int, string, bool, bool);
 	void draw(int,int);
 	void update();
 	void estados(bool);
 	void animacion();
+	
+	/** añade elementos al contenedor */
+	void fila(ofFbo);
 
 	ofEvent <string> evento;
 	void mouseMoved(ofMouseEventArgs & args);
@@ -40,10 +46,12 @@ public:
 	void mousePressed(ofMouseEventArgs & args);
     void mouseReleased(ofMouseEventArgs & args);
 
-	bool dentro(float,float);
-	void fila(ofFbo);
 	vector<ofFbo> filas;
 
+	int largo;
+	int anchoFinal;
+
+	bool dentro(float,float);
 	bool getter();
 	void setter(bool);
 

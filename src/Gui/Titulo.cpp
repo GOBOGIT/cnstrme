@@ -8,7 +8,7 @@ Titulo::Titulo() {
 	posActual = 0;
 	iniciaAnim = false;
 	stack = "";
-	textoTitulo = "AYUDA\nPRINCIPAL";
+	textoTitulo = "GALERIA\nPRINCIPAL";
 	titulo = globales.typoTitulo;
 	titulo.setLineHeight(120);
 	anchoFbo = 85;
@@ -56,7 +56,7 @@ void Titulo::setter(string _titulo) {
 
 	if(_titulo != stack){
 		if(_titulo  == "Principal") posFinal = -50;
-		if(_titulo  == "Ayuda") posFinal = 70;
+		if(_titulo  == "galeria") posFinal = 70;
 	
 	iniciaAnim = true;
 	animacion();

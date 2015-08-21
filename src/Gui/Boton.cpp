@@ -1,4 +1,4 @@
-#include "btnCirculo.h"
+#include "Boton.h"
 
 #include "ofMain.h"
 

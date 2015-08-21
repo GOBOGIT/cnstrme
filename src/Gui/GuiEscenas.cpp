@@ -16,7 +16,7 @@ void GuiEscenas::setup() {
 	//botones
 	BtnInicio.setup("ESCENA 3D",0, "verde");
 	BtnRegresaInicio.setup( "INICIO",0,"verde");
-	BtnAyuda.setup("AYUDA",0,"verde");
+	BtnGaleria.setup("GALERIA",0,"verde");
 
 }
 
@@ -35,7 +35,7 @@ void GuiEscenas::draw(float _x, float _y) {
 	ofPushMatrix();
 			BtnRegresaInicio.draw(0,0,50);
 			BtnInicio.draw(150,0,50);
-			BtnAyuda.draw(300,0,50);
+			BtnGaleria.draw(300,0,50);
 	ofPopMatrix();
 
 }
@@ -44,7 +44,7 @@ void GuiEscenas::update() {
 
 	BtnRegresaInicio.update(x,y);
 	BtnInicio.update(x,y);
-	BtnAyuda.update(x,y);
+	BtnGaleria.update(x,y);
 			
 	if(a != b){
 			if(a == "inc") estado = true;
@@ -67,7 +67,7 @@ void GuiEscenas::estados(bool _a, bool _b, bool _c, string _escena) {
 
 	BtnRegresaInicio.estados(_a);
 	BtnInicio.estados(_b);
-	BtnAyuda.estados(_c);
+	BtnGaleria.estados(_c);
 }
 
 

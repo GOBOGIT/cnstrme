@@ -1,6 +1,6 @@
 #pragma once
 #include "ofMain.h"
-#include "BtnCirculo.h"
+#include "Boton.h"
 
 class GuiEscenas {
 
@@ -31,7 +31,7 @@ public:
 	//ofTrueTypeFont typo;
 	boton BtnInicio;
 	boton BtnRegresaInicio;
-	boton BtnAyuda;
+	boton BtnGaleria;
 
 
 	ofxTween animGuiLinear;

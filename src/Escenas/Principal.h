@@ -3,8 +3,8 @@
 #include "../globales.h"
 
 #include "ofxAssimpModelLoader.h"
-#include "../Gui/GuiEstaticos.h"
-#include "../Gui//BtnCirculo.h"
+#include "../Gui/Contenedor.h"
+#include "../Gui//Boton.h"
 #include "../Cajas/cajaTexto.h"
 #include "../Cajas/cajaImagen.h"
 #include "../3D/gestor3D.h"
@@ -38,7 +38,7 @@ public:
 
 	boton botonPanel;
 
-	GuiEstaticos guiEstatico;
+	Contenedor guiEstatico;
 	
 
 	cajaTexto cajaTxt;

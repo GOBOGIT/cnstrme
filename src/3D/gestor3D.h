@@ -10,7 +10,7 @@ class gestor3D {
 	ofFloatColor color;
 	ofxAssimpModelLoader escena;
 	ofLight light;
-
+	ofFloatColor colorBase;
 public:
 
 
@@ -22,6 +22,7 @@ public:
 
 	ofEasyCam camara;
 	string seleccion;
+	ofMaterial *material;
 
 	// para acceder directamente a metodos de assimp y no de openframeworks
 	const struct aiScene* esceAssimp;
