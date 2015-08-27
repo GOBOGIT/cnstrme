@@ -1,19 +1,17 @@
 #include "cajaTexto.h"
 
-
-//extern desde ofApp
-extern Globales globales;
-
-cajaTexto::cajaTexto(int _largo, int _ancho, string _texto, ofColor _colorFondo, ofColor _colorTexto) {
+cajaTexto::cajaTexto(int _largo, int _ancho, string _texto, ofColor _colorFondo, ofColor _colorTexto, unsigned int _posFila) {
 
 
 	texto = _texto;
 	largo = _largo;
 	ancho = _ancho;
+	h = _ancho;
 	colorFondo = _colorFondo;
 	colorTexto = _colorTexto;
+	posFila = _posFila;
 
-	titulo = globales.typo;
+	titulo = Globales::typo;
 	titulo.setLineHeight(18.0f); 
  	titulo.setLetterSpacing(1.02); 
 	ofRectangle bounds = titulo.getStringBoundingBox(texto, 0, 0);
@@ -28,6 +26,12 @@ cajaTexto::cajaTexto(int _largo, int _ancho, string _texto, ofColor _colorFondo,
 		titulo.drawString(texto,15,(ancho/2));
 		ofPopStyle();
 	fbo.end();
+}
+
+
+void cajaTexto::draw() {
+
+	fbo.draw(0,0);
 }
 
 

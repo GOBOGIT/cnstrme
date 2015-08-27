@@ -1,10 +1,11 @@
 #include "Boton.h"
 
-#include "ofMain.h"
+//#include "ofMain.h"
 
 
 // desde extern en ofapp
 extern Globales globales;
+
 
 void boton::setup(string _texto, int  _tipo, string _colorBoton) {
 
@@ -22,12 +23,20 @@ void boton::setup(string _texto, int  _tipo, string _colorBoton) {
 	estaDentro = false;
 	color = globales.paqueteColores[colorBoton]["normal"];
 	ofRegisterMouseEvents(this);
-}
+
+
+	// en botones con imagenes
+	imagen.loadImage("uvtemplate.jpg");
+    fboImagen.allocate(imagen.width, imagen.height);
+    fboMascara.allocate(imagen.width, imagen.height);
+} 
 
 void boton::update(int _x, int _y) {
+		
 	Relx = _x;
 	Rely = _y;
 }
+
 
 
 // en caso de que sea un círculo
@@ -35,7 +44,6 @@ void boton::draw(int _x, int _y, int _r) {
 	radio = _r;
 	Absx =_x;
 	Absy =_y;
-
 
 	ofRectangle bounds = typo.getStringBoundingBox(texto, 0, 0);
 	
@@ -46,7 +54,43 @@ void boton::draw(int _x, int _y, int _r) {
 			glScalef(escala, escala,0);
 			ofCircle(0,0,radio);
 			ofSetColor(ofColor::black);
-			typo.drawStringAsShapes(texto,-bounds.width/2,bounds.height/2);
+			typo.drawString(texto,-bounds.width/2,bounds.height/2);
+		ofPopStyle();
+	glPopMatrix();
+	
+}
+
+// CIRCULO CON IMAGEN
+void boton::draw(int _x, int _y, int _r, ofImage _imagen) {
+	radio = _r;
+	Absx =_x;
+	Absy =_y;
+	
+	glPushMatrix();
+		ofPushStyle();
+			 ofSetColor(255, 255, 255);
+			
+			glTranslatef(Relx+Absx,Rely+Absy,0);
+			glScalef(escala, escala,0);
+
+			fboImagen.begin();
+				ofClear(0,0,0,0);
+				ofSetColor(color);
+				imagen.draw(0,0);
+			fboImagen.end();
+
+			fboMascara.begin();
+				ofClear(0,0,0,0);
+				ofSetColor(255,255,255);
+				ofCircle(0,0,radio);
+			fboMascara.end();
+
+			
+			fboMascara.draw(0,0);
+			ofEnableBlendMode(OF_BLENDMODE_SUBTRACT);
+			fboImagen.draw(-imagen.getWidth()/2,-imagen.getHeight()/2);
+			ofDisableBlendMode();
+			
 		ofPopStyle();
 	glPopMatrix();
 	
@@ -69,7 +113,7 @@ void boton::draw(int _x, int _y, int _largo, int _ancho) {
 		ofSetColor(color);
 		ofRect(Relx+Absx,Rely+Absy,largo, ancho);
 		ofSetColor(ofColor::black);
-		typo.drawStringAsShapes(texto,posTextoX,posTextoY);
+		typo.drawString(texto,posTextoX,posTextoY);
 	ofPopStyle();
 }
 
@@ -117,13 +161,4 @@ void boton::estados(bool _estados) {
 	}
 
 }
-
-bool boton::getter() {
-	return estaDentro;
-}
-
-void boton::setter(bool _dentro) {
-	estaDentro = _dentro;
-}
-
 

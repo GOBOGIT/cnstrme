@@ -13,15 +13,30 @@ extern Globales globales;
 
 class ofApp : public ofBaseApp {
 
-		Inicio escenaInicial;
+	/*	Inicio escenaInicial;
 		Principal escenaPrincipal;
-		Galeria escenaGaleria;
+		Galeria escenaGaleria;*/
 		GuiEscenas guiEscenas;
-		Rafaga animRafaga;
 		Titulo titulo;
 
-		bool iniciaRafaga;
-		string tituloEscena;
+		enum esc {inicio, principal, galeria} escenas;
+		esc escenaSel;
+
+		struct escena {
+			Inicio escenaInicial;
+			Principal escenaPrincipal;
+			Galeria escenaGaleria;
+			bool rafaga;
+			int estadosEscenas[3];
+			int estadosBotones[3];
+			string nombre;
+			esc enumEscena;
+		};
+
+		escena st_inicio;
+		escena st_principal;
+		escena st_galeria;
+		escena esceSel;
 
 	public:
 		void setup();
@@ -38,22 +53,10 @@ class ofApp : public ofBaseApp {
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
-
-		
-
-		enum esc {inicio, principal, galeria} escenas;
-		esc escenaSel;
-		esc escenaRafaga;
-
 		void estadosEscenas(bool, bool, bool);
-		void selEscena(int, string);
-		
-		
-		void rafaga(bool,esc, string);
+		void selEscena(int);
+		void selEscena(escena);
 
-
-		ofxTween tween;
-		ofxEasingLinear easing;
 
 };
 

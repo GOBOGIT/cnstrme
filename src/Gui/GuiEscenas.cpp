@@ -10,7 +10,7 @@ void GuiEscenas::setup() {
 	LARGO = 300;
 
 	
-	a = b = "inic";
+	a = b = "inicio";
 	estados(0,0,0, a);
 
 	//botones
@@ -45,11 +45,14 @@ void GuiEscenas::update() {
 	BtnRegresaInicio.update(x,y);
 	BtnInicio.update(x,y);
 	BtnGaleria.update(x,y);
-			
+	
+
+	// animacion gui
+
 	if(a != b){
-			if(a == "inc") estado = true;
-			if((a=="pri") && (estado)) animacion();
-			if(a =="ayu") estado = false;
+			if(a == "inicio") estado = true;
+			if((a=="principal") && (estado)) animacion();
+			if(a =="ayuda") estado = false;
 	b = a;
 	}
 

@@ -1,19 +1,29 @@
 #include "cajaImagen.h"
 
 
-cajaImagen::cajaImagen(int _largo, int _ancho, ofTexture _textura) {
+cajaImagen::cajaImagen(int _largo, int _ancho, ofTexture _textura, unsigned int _posFila) {
 
 
 	imagen = _textura;
 	largo = _largo;
 	ancho = _ancho;
+	h = ancho;
+	posFila = _posFila;
 
-	FboCajaImagen.allocate(largo,ancho,GL_RGBA);
-	FboCajaImagen.begin();
-	ofPushStyle();
+	fbo.allocate(largo,ancho,GL_RGBA);
+	fbo.begin();
+	ofPushMatrix();
+		ofPushStyle();
 		imagen.draw(0,0, largo, ancho);
-	ofPopStyle();
-	FboCajaImagen.end();
+		ofPopStyle();
+	ofPopMatrix();
+	
+	fbo.end();
+}
+
+void cajaImagen::draw() {
+
+	fbo.draw(0,0);
 }
 
 

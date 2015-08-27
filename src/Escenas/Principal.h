@@ -7,6 +7,7 @@
 #include "../Gui//Boton.h"
 #include "../Cajas/cajaTexto.h"
 #include "../Cajas/cajaImagen.h"
+#include "../Cajas/cajaGR_Circulos.h"
 #include "../3D/gestor3D.h"
 
 
@@ -25,22 +26,20 @@ public:
 	void estados(bool);
 	void activar();
 	void desactivar();
-	void iniciar();
+	void iniciar(string);
 
 	bool botonPanelActivo;
-
-	//ofEasyCam cam;
-	//ofxAssimpModelLoader modelo;
-	//ofLight iluminacion;
 
 	gestor3D escena3D;
 	ofLight iluminacion;
 
 	boton botonPanel;
+	string titulo;
 
 	Contenedor guiEstatico;
 	
 
 	cajaTexto cajaTxt;
 	cajaImagen cajaImg;
+	cajaGrCirculos cajaCirculo, otraCajaC;
 };

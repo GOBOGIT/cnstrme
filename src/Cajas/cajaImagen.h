@@ -9,13 +9,21 @@ class cajaImagen{
 public:
 
 	cajaImagen() {};
-	cajaImagen(int,int, ofTexture);
+
+	/** Parámetros
+	@param ancho y largo para allocate del fbo
+	@param textura a insertar en fbo
+	@param posicion de arriba a abajo en contenedor */
+	cajaImagen(int,int, ofTexture, unsigned int);
 
 	void draw();
+	void update();
+	void estados(bool);
 
 	string texto;
-	ofFbo FboCajaImagen;
+	ofFbo fbo;
 	ofTexture imagen;
 
-
+	int h;
+	unsigned int posFila;
 };

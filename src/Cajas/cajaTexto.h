@@ -7,15 +7,28 @@ class cajaTexto {
 
 	int ancho, largo;
 	ofColor colorFondo, colorTexto;
-public:
+	string texto;
+	ofTrueTypeFont titulo;
+
+	public:
 
 	cajaTexto() {};
-	cajaTexto(int,int, string, ofColor, ofColor);
+
+	/** parámetros de entrada
+	@param ancho y largo para allocate
+	@param texto a mostrar
+	@param color de fondo
+	@param color de texto
+	@param orden de arriba a abajo en contenedor */
+	cajaTexto(int,int, string, ofColor, ofColor, unsigned int);
 
 	void draw();
+	void update() {};
+	void estados(bool) {};
 
-	string texto;
+
 	ofFbo fbo;
-	ofTrueTypeFont titulo;
+	int h;
+	unsigned int posFila;
 
 };

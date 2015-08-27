@@ -9,9 +9,9 @@ void ofApp::setup(){
 	globales.assets(); 
 
 	// escenas
-	escenaPrincipal.iniciar("Principal");
-	escenaGaleria.iniciar("Galeria");
-	escenaInicial.iniciar("Inicio");
+	escenaPrincipal.iniciar();
+	escenaGaleria.iniciar();
+	escenaInicial.iniciar();
 	//varios
 	//ofSetFrameRate(60);
 	ofTrueTypeFont::setGlobalDpi(72);
@@ -26,10 +26,8 @@ void ofApp::setup(){
 	// inicializa titulo
 	titulo = Titulo();
 
-	// inicializa rafaga
-	animRafaga = Rafaga(2000);
-	iniciaRafaga = false;
-
+	activaCambioEscena =false;
+	rafagaActivada = false;
 
 }
 
@@ -37,20 +35,20 @@ void ofApp::setup(){
 void ofApp::update(){
 
 
-		if(escenaInicial.BtnInicio.getter()){
+		if(escenaInicial.BtnInicio.getter() || guiEscenas.BtnInicio.getter()){
+		
+			selEscena(1);
 			escenaInicial.BtnInicio.setter(false);
-			selEscena(1, escenaPrincipal.titulo);
-		}
-		if(guiEscenas.BtnInicio.getter()){
 			guiEscenas.BtnInicio.setter(false);
-				selEscena(1, escenaPrincipal.titulo);
+				titulo.setter("Principal");
 		}
 		if(guiEscenas.BtnRegresaInicio.getter()){
-			selEscena(0, escenaInicial.titulo);
+			selEscena(0);
 			guiEscenas.BtnRegresaInicio.setter(false);
 		}
 		if(guiEscenas.BtnGaleria.getter()){
-			selEscena(2, escenaGaleria.titulo);
+			selEscena(2);
+			titulo.setter("galeria");
 			guiEscenas.BtnGaleria.setter(false);
 		}
 		guiEscenas.update();
@@ -62,8 +60,19 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-//	ofEnableBlendMode(OF_BLENDMODE_ALPHA);
-//	ofEnableSmoothing();
+
+
+	cout << rafaga.iniciar;
+	
+	cout << rafaga.getter() << endl;
+
+
+	// si se inicio la rafaga, esperar a que termine para cambiar de escena
+	
+//if(rafaga.iniciar && rafaga.getter()) { activaCambioEscena = true;}
+	//else if(!rafaga.iniciar && rafaga.getter()) { activaCambioEscena = true;}
+	// si no hay rafaga que mostrar	
+//	else if((rafaga.iniciar) && rafaga.getter()) { activaCambioEscena = true;}
 
 
 	switch(escenas) {
@@ -78,49 +87,42 @@ void ofApp::draw(){
 		titulo.draw();
 	}
 
+	// 1. aparece la rafaga
+	// 2. Cambia la escena
+	// 2. baja la rafaga
 	
-	if(iniciaRafaga) {
-		animRafaga.draw();
-		if(animRafaga.anim.isCompleted()) {
-			escenas = escenaRafaga;	
-			titulo.setter(tituloEscena);
-			if(animRafaga.animSalida.isCompleted())	{
-				iniciaRafaga = false;
-			
-			}
-		}
-	}
+	//if(activarRafaga)
 
-	
-	ofDrawBitmapString(ofToString(ofGetFrameRate()),10,10,0);
+	rafaga.draw();
+
 
 }
 
 
-void ofApp::selEscena(int _numEscena, string _titulo) {
-cout << escenaSel;
-cout << _numEscena << endl;
-
-tituloEscena = _titulo;
+void ofApp::selEscena(int _numEscena) {
+	
 if(escenaSel !=_numEscena) {
 	switch(_numEscena){
-		case 0: 
+		case 0: escenas = inicio;
+			rafagaActivada = false;	
 			estadosEscenas(1,0,0);
 			guiEscenas.estados(0,0,0,"inc");
-			rafaga(false,inicio, tituloEscena);	
 			break;
 		case 1: 
-			estadosEscenas(0,1,0);
-			guiEscenas.estados(1,0,1,"pri");
-			rafaga(false,principal, tituloEscena);	
+				rafagaActivada = true;	
+				rafaga.estado(true);					// rafaga siempre cuando accedemos a principal
+				escenas = principal ;						// cambia al terminar rafaga
+				estadosEscenas(0,1,0);
+				guiEscenas.estados(1,0,1,"pri");
 			break;
-		case 2:
+		case 2: escenas = galeria; 
+			rafagaActivada = false;	
+	
 			estadosEscenas(0,0,1);
 			guiEscenas.estados(1,1,0,"gal");
-			rafaga(true,galeria, tituloEscena);	
 			break;
 	}
-	
+	escenaSel = escenas;
 }
 }
 
@@ -129,20 +131,6 @@ void ofApp::estadosEscenas(bool _a, bool _b, bool _c) {
 	_b? escenaPrincipal.activar() : escenaPrincipal.desactivar();
 	escenaGaleria.estados(_c);
 	
-}
-
-
-void ofApp::rafaga(bool _rafaga, esc _esc, string _titulo) {
-	if(_rafaga){	
-		iniciaRafaga = true;
-		animRafaga.estado(true);
-		escenaRafaga = _esc;
-	} else {
-		escenas = _esc;
-		titulo.setter(tituloEscena);
-	}
-		escenaSel = _esc;
-		
 }
 
 

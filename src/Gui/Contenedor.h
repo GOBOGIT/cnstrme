@@ -3,6 +3,9 @@
 #include "ofMain.h"
 #include "Boton.h"
 #include "../globales.h"
+#include "../Cajas/cajaGR_Circulos.h"
+#include "../Cajas/cajaTexto.h"
+#include "../Cajas/cajaImagen.h"
 
 class Contenedor {
 
@@ -12,7 +15,8 @@ private:
 	float posx;
 	float posy;
 	vector<unsigned int> posyFila;
-
+	vector<unsigned int>anchoCaja;
+	ofFbo fbo;
 
 
 	int barra;
@@ -21,10 +25,17 @@ private:
 	bool btnSalida;
 	bool b_barra;
 
+	struct contenidofilas {
+		vector<cajaTexto> cajasTexto;
+		vector<cajaGrCirculos> cajasCirculos;
+		vector<cajaImagen> cajasImagen;
+	} stFilas;
+
 
 public:
 
-
+	Contenedor() {}
+	~Contenedor() {}
 
 	/** inicializa el contenedor
 		@param posicion x e y absolutos
@@ -38,7 +49,11 @@ public:
 	void animacion();
 	
 	/** añade elementos al contenedor */
-	void fila(ofFbo);
+	//void fila(ofFbo);
+	void fila(cajaGrCirculos);
+	void fila(cajaTexto);
+	void fila(cajaImagen);
+
 
 	ofEvent <string> evento;
 	void mouseMoved(ofMouseEventArgs & args);

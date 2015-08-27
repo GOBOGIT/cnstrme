@@ -8,8 +8,6 @@
 #include "../Cajas//cajaTexto.h"
 #include "../Gui/Grid.h"
 
-
-
 class Galeria {
 
 	
@@ -23,15 +21,16 @@ public:
 	void update();
 
 
-	void iniciar();
+	void iniciar(string);
 	void estados(bool);
 
 	// matriz para carga de muestra
 	vector<Contenedor> matrizContenedores;
-	
+	vector<Contenedor> muchosC;
 	ofVideoPlayer prueba;
 	ofFbo fboPrueba;
 
+	string titulo;
 	cajaImagen cajaImg;
 	cajaTexto cajaTxt;
 	Contenedor contenedor;

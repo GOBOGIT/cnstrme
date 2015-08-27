@@ -1,7 +1,6 @@
 #pragma once
 #include "ofMain.h"
 
-
 class Globales {
 
 	private:
@@ -19,6 +18,8 @@ class Globales {
 		static ofTrueTypeFont typoTitulo;
 		static ofTexture imagenEstaticos;
 		static ofTexture mockupImagen160x160;
+		static ofTexture mockupImagen1000x500;
+		static ofImage	imagenUV;
 		static ofVideoPlayer videoAnim;
 
 		static map<string, map<string, ofColor>> paqueteColores;

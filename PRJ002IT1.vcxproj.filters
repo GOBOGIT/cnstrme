@@ -97,6 +97,15 @@
     <ClCompile Include="src\Gui\Boton.cpp">
       <Filter>src\Gui</Filter>
     </ClCompile>
+    <ClCompile Include="src\Eventos.cpp">
+      <Filter>src\Gui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rafaga.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cajas\cajaGR_Circulos.cpp">
+      <Filter>src\Cajas</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -334,6 +343,15 @@
     </ClInclude>
     <ClInclude Include="src\Gui\Boton.h">
       <Filter>src\Gui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Eventos.h">
+      <Filter>src\Gui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rafaga.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cajas\cajaGR_Circulos.h">
+      <Filter>src\Cajas</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

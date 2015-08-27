@@ -3,8 +3,9 @@
 // desde extern ofapp
 extern Globales globales;
 
-void Inicio::iniciar() {
-
+void Inicio::iniciar(string _titulo) {
+	
+	titulo = _titulo;
 	//tween
 	delay = 500;
 	duration = 1500;
@@ -13,9 +14,10 @@ void Inicio::iniciar() {
 	// imagen
 	animImagenInicio.setParameters(7,easingelastic,ofxTween::easeOut, 70,100,duration,delay);
 	ofLoadImage(imagen, "imagenInicio.png");
+	
 	// boton
 	click = false;
-	BtnInicio.setup("INICIAR", 0, "verde");
+	BtnInicio.setup("INICIAR",0,"verde");
 
 }
 
@@ -34,12 +36,15 @@ void Inicio::draw(int _r, int _g, int _b) {
 
 }
 
-
 void Inicio::estados(bool _estado) {
 
 	if(_estado){
 		delay = 0;
 		animImagenInicio.setParameters(7,easingelastic,ofxTween::easeOut, 70,+100,duration,delay);
+		BtnInicio.estados(true);
+	} else {
+
+	BtnInicio.estados(false);
 	}
 
 }

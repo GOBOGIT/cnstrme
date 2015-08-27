@@ -56,7 +56,7 @@ void Titulo::setter(string _titulo) {
 
 	if(_titulo != stack){
 		if(_titulo  == "Principal") posFinal = -50;
-		if(_titulo  == "galeria") posFinal = 70;
+		if(_titulo  == "Galeria") posFinal = 70;
 	
 	iniciaAnim = true;
 	animacion();

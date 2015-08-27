@@ -8,16 +8,19 @@ class Inicio {
 private:
 	
 	ofTexture imagen;
+	ofxTween animImagenInicio;
+	ofxEasingElastic easingelastic;
+	ofTrueTypeFont typo;
 
 public:
 
-	Inicio() {};
+	Inicio(){};
 	~Inicio() {};
 	
 	void draw(int _r, int _g, int _b);
 	
 
-	void iniciar();
+	void iniciar(string);
 	void estados(bool);
 
 	bool click;
@@ -27,12 +30,11 @@ public:
 	unsigned delay;
 	unsigned duration;
 
-
+	string titulo;
 	boton BtnInicio;
-	ofTrueTypeFont typo;
+	
 
-	ofxTween animImagenInicio;
-	ofxEasingElastic easingelastic;
+
 
 	
 };

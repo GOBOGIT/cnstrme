@@ -17,11 +17,17 @@ class ofApp : public ofBaseApp {
 		Principal escenaPrincipal;
 		Galeria escenaGaleria;
 		GuiEscenas guiEscenas;
-		Rafaga animRafaga;
+		Rafaga rafaga;
 		Titulo titulo;
 
-		bool iniciaRafaga;
-		string tituloEscena;
+		struct escena {
+			Inicio escenaInicial;
+			bool esrafaga;
+		};
+
+		bool rafagaEstado;
+		bool activaCambioEscena;
+		bool rafagaActivada;
 
 	public:
 		void setup();
@@ -43,17 +49,11 @@ class ofApp : public ofBaseApp {
 
 		enum esc {inicio, principal, galeria} escenas;
 		esc escenaSel;
-		esc escenaRafaga;
 
 		void estadosEscenas(bool, bool, bool);
-		void selEscena(int, string);
-		
-		
-		void rafaga(bool,esc, string);
+		void selEscena(int);
 
 
-		ofxTween tween;
-		ofxEasingLinear easing;
 
 };
 
