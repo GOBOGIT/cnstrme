@@ -4,41 +4,49 @@
 #include "../globales.h"
 
 
+
 class boton {
 
 private:
 
 	Globales globales;
 	bool estaDentro;
-	string texto;
+	bool isDrag;
+	
 	ofColor color;
-	int tipoBoton;
+	
 	int posTextoX;
 	int posTextoY;
 	int Relx, Rely, radio;
 	int Absx, Absy;
 	int ancho, largo;
+	bool eventos;
 	
 	float escala;
 	ofTrueTypeFont typo;
 
 	ofFbo fboImagen;
 	ofFbo fboMascara;
-
+	
 	ofImage imagen;
+
 public:
 
-	boton() {};
-	boton(string _texto, int _tipoBoton, string _colorBoton);
+	enum tiposBotones{circuloTexto,circuloImagen,rectTexto,rectImagen};
 	
-	~boton() { cout << "dBoton" ;};
+	boton() {};
+	boton(tiposBotones _tipoBtn, string _colorBoton);
+	
+	~boton() {};
 
-	void setup(string, int, string);
 	void update(int,int);
-	void draw(int,int,int);				// circulo: pos y radio
-	void draw(int,int,int,int);			//  rectángulo: pos, largo y ancho
+	
+	void draw(ofVec2f,int,string);				// circulo: pos y radio
+	void draw(ofVec2f,int,int,string);			//  rectángulo: pos, largo y ancho
+	void draw(ofVec2f,int, ofImage);			// circulo: pos y radio con imagen
+	void draw(ofVec2f,int,int,ofImage);			//  rectángulo: pos, largo , ancho e imagen
 
-	void draw(int,int,int, ofImage);	// circulo: pos y radio con imagen
+
 
 	ofEvent <string> evento;
 
@@ -52,8 +60,12 @@ public:
 	void estados(bool);
 
 	bool getter() { return estaDentro; }
-	void setter(bool _dentro){ estaDentro =_dentro;  }
+	void setter(bool _dentro){ estaDentro =_dentro;  };
 
 	string colorBoton;
+	string texto;
+	
+	//tiposBotones tipoBtn;
+	tiposBotones tipoBoton;
 
 };

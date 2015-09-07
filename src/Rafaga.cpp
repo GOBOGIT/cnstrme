@@ -1,6 +1,5 @@
 #include "Rafaga.h"
 
-extern Globales globales;
 
 Rafaga::Rafaga(float _duracion, float _velocidad, ofColor _color) {
 
@@ -12,7 +11,7 @@ Rafaga::Rafaga(float _duracion, float _velocidad, ofColor _color) {
 	iniciar = false;
 	finalizar = false;
 	
-	cajaImg = cajaImagen(1000,500, globales.mockupImagen1000x500, 0);
+	cajaImg = cajaImagen(1000,500, Globales::imagenes["mockup100x500"], 0);
 	contenedor.fila(cajaImg);
 	contenedor.setup(1000,500,"",false,false);
 		

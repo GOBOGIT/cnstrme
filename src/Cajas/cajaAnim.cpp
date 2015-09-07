@@ -1,8 +1,6 @@
 #include "cajaAnim.h"
 
 cajaAnim::cajaAnim(int _largo, int _ancho, ofVideoPlayer _video) {
-
-
 	video = _video;
 	largo = _largo;
 	ancho = _ancho;

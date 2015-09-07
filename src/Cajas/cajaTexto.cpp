@@ -1,6 +1,6 @@
 #include "cajaTexto.h"
 
-cajaTexto::cajaTexto(int _largo, int _ancho, string _texto, ofColor _colorFondo, ofColor _colorTexto, unsigned int _posFila) {
+cajaTexto::cajaTexto(unsigned int _posFila, int _largo, int _ancho, string _texto, ofColor _colorFondo, ofColor _colorTexto) {
 
 
 	texto = _texto;
@@ -11,7 +11,7 @@ cajaTexto::cajaTexto(int _largo, int _ancho, string _texto, ofColor _colorFondo,
 	colorTexto = _colorTexto;
 	posFila = _posFila;
 
-	titulo = Globales::typo;
+	titulo =  Globales::tipografia["med"];
 	titulo.setLineHeight(18.0f); 
  	titulo.setLetterSpacing(1.02); 
 	ofRectangle bounds = titulo.getStringBoundingBox(texto, 0, 0);

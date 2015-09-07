@@ -2,27 +2,20 @@
 #include "ofMain.h"
 
 class Globales {
-
-	private:
-
-		static ofColor color;
-
-
 		
 	public:
 
 		static ofColor bgGris();
 		static ofColor bgGrisOscuro();
 
-		static ofTrueTypeFont typo;
-		static ofTrueTypeFont typoTitulo;
-		static ofTexture imagenEstaticos;
-		static ofTexture mockupImagen160x160;
-		static ofTexture mockupImagen1000x500;
-		static ofImage	imagenUV;
+		static map<string,ofImage> iconos;
+		static map<string,ofImage> imagenes;
+		static map<string,ofTrueTypeFont> tipografia;
+
 		static ofVideoPlayer videoAnim;
 
 		static map<string, map<string, ofColor>> paqueteColores;
+		static map<string, ofColor> color;
 
 		static void assets();
 	

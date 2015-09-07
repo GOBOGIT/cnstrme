@@ -9,7 +9,7 @@ class Eventos {
 public:
 
 	Eventos();
-	~Eventos() {cout << "destruye Eventos" << endl;}
+	~Eventos() {}
 
 	void mouseMoved(ofMouseEventArgs & args);
     void mouseDragged(ofMouseEventArgs & args);

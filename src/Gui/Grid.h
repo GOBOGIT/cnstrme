@@ -12,11 +12,25 @@ class Grid {
 	 int posxContenedor, posyFila;
 	 int contenedorID;
 	 int posx,posy, largoVentana, anchoVentana;
-	 float dragy;
 	 float anchoTotalVentana;
-	 int posyMouse;
-	 bool pressed;
-	 bool anim;
+	 ofFbo ventana;
+	 vector<Contenedor> contenedores;
+	 void reset();
+	 void dibujaLimites();
+
+
+
+	// p: pressed
+    bool p;
+	// id: boton del raton, por defecto 0;
+    int pID;
+	// posicion inicial del mouse en Y
+    float pOrigin;
+    float desOrigin;
+	float time;
+	float position;
+    float destination;
+    float velocity;
 
 public:
 
@@ -24,13 +38,16 @@ public:
 		contenedorID =0;
 		posxContenedor = 0;
 		posyFila = 0;
-		dragy=0;
-		pressed = true;
-		anim = true;
 		ofRegisterMouseEvents(this);	
+		p=false;
+		pOrigin=0;
+		desOrigin=0;
+		time = ofGetElapsedTimef();
+		reset();
+
 	};
 
-	~Grid() { cout << "destruye Grid" << endl; };
+	~Grid() {};
 
 	void mouseMoved(ofMouseEventArgs & args);
     void mouseDragged(ofMouseEventArgs & args);
@@ -42,13 +59,12 @@ public:
 	void update();
 	void add(vector<Contenedor>);
 	bool dentro(float,float);
-	void dibujaLimites();
+	
 	void estados(bool);
+	
 
-	ofxTween tween;
-	ofxEasingLinear easinglinear;
+	
 
-	vector<Contenedor> contenedores;
-	ofFbo ventana;
+	
 	
 };

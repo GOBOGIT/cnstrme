@@ -1,9 +1,8 @@
 #include "cajaGR_Circulos.h"
 
-extern Globales globales;
+#define RESOLUCION 64.
 
 cajaGrCirculos::cajaGrCirculos( unsigned int _posFila,int _w, int _h, float _vMax, float _vFinal, float _escalaCirculo, float _escalaInterior, ofColor _bg, ofColor _fg) {
-
 	w = _w;
 	h = _h;
 	vMax = _vMax;
@@ -14,11 +13,11 @@ cajaGrCirculos::cajaGrCirculos( unsigned int _posFila,int _w, int _h, float _vMa
 	fg = _fg;
 	escalaCirculo = _escalaCirculo;
 	porcentajeFinal = (360 * vFinal) / vMax;
-	resolucion = 32;
+	resolucion = RESOLUCION;
 	radio = (min(w,h)/2) * escalaCirculo;
 	iniciar = false;
 	valorTween = 1.0f;
-	valores = globales.typo;
+	valores =  Globales::tipografia["med"];
 }
 
 
@@ -53,16 +52,16 @@ void cajaGrCirculos::draw() {
 					ofRect(0,0,w,h);		
 					path.setMode(ofPath::POLYLINES);  
 							path.setFilled(true);
-							path.setCircleResolution(resolucion);
+							path.setCircleResolution(RESOLUCION);
 							path.setFillColor(fg);
 							path.moveTo((w/2),(h/2));
 							path.arc((w/2),(h/2),radio,radio,0,valorTween);
 							path.draw();
 							ofSetColor(bg);
+
 							ofCircle((w/2),(h/2),radio*escalaInterior);
 							ofSetColor(fg);
 							valores.drawString(texto,(w/2)-(bounds.width/2),h/2);
-
 				ofPopStyle();
 			ofPopMatrix();
 }

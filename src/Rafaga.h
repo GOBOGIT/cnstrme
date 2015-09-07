@@ -26,7 +26,7 @@ public:
 	@param velocidad animacion  (defecto 500)
 	@param color de fondo		(defecto lightGray) */
 	Rafaga(float, float = 500, ofColor = ofColor::lightGray);
-	~Rafaga(){ cout << "destruye Rafaga" << endl; };
+	~Rafaga(){};
 
 	void draw();
 	void update();

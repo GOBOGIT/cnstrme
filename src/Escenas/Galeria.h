@@ -33,6 +33,8 @@ public:
 	string titulo;
 	cajaImagen cajaImg;
 	cajaTexto cajaTxt;
+
+	boton botones;
 	Contenedor contenedor;
 	Grid grid;
 	

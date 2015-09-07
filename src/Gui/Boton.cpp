@@ -1,49 +1,37 @@
 #include "Boton.h"
 
-//#include "ofMain.h"
-
-
-// desde extern en ofapp
-extern Globales globales;
-
-
-void boton::setup(string _texto, int  _tipo, string _colorBoton) {
+boton::boton(tiposBotones _tipoBtn, string _colorBoton) {
 
 	Relx = 0;
 	Rely = 0;
-	tipoBoton = _tipo;
+	tipoBoton = _tipoBtn;
 	escala = 1;
 	colorBoton = _colorBoton;
+	
+	eventos =false;
 
+	typo = Globales::tipografia["med"];
 	typo.setLineHeight(18.0f); 
  	typo.setLetterSpacing(1.02); 
 
-	texto = _texto;
-	typo = globales.typo;
 	estaDentro = false;
-	color = globales.paqueteColores[colorBoton]["normal"];
-	ofRegisterMouseEvents(this);
-
-
-	// en botones con imagenes
-	imagen.loadImage("uvtemplate.jpg");
-    fboImagen.allocate(imagen.width, imagen.height);
-    fboMascara.allocate(imagen.width, imagen.height);
-} 
+	isDrag = false;
+	color = Globales::paqueteColores[colorBoton]["normal"];
+	
+}
 
 void boton::update(int _x, int _y) {
-		
 	Relx = _x;
 	Rely = _y;
 }
 
-
-
 // en caso de que sea un círculo
-void boton::draw(int _x, int _y, int _r) {
+void boton::draw(ofVec2f _pos, int _r, string _texto) {
+	
+	texto = _texto;
 	radio = _r;
-	Absx =_x;
-	Absy =_y;
+	Absx =_pos.x;
+	Absy =_pos.y;
 
 	ofRectangle bounds = typo.getStringBoundingBox(texto, 0, 0);
 	
@@ -61,48 +49,35 @@ void boton::draw(int _x, int _y, int _r) {
 }
 
 // CIRCULO CON IMAGEN
-void boton::draw(int _x, int _y, int _r, ofImage _imagen) {
-	radio = _r;
-	Absx =_x;
-	Absy =_y;
-	
+void boton::draw(ofVec2f _pos, int _diametro, ofImage _imagen) {
+
+	radio = _diametro/2;
+	Absx =_pos.x;
+	Absy =_pos.y;
+
+	imagen = _imagen;
+
 	glPushMatrix();
 		ofPushStyle();
-			 ofSetColor(255, 255, 255);
-			
+			ofSetColor(color);
 			glTranslatef(Relx+Absx,Rely+Absy,0);
 			glScalef(escala, escala,0);
-
-			fboImagen.begin();
-				ofClear(0,0,0,0);
-				ofSetColor(color);
-				imagen.draw(0,0);
-			fboImagen.end();
-
-			fboMascara.begin();
-				ofClear(0,0,0,0);
-				ofSetColor(255,255,255);
-				ofCircle(0,0,radio);
-			fboMascara.end();
-
-			
-			fboMascara.draw(0,0);
-			ofEnableBlendMode(OF_BLENDMODE_SUBTRACT);
-			fboImagen.draw(-imagen.getWidth()/2,-imagen.getHeight()/2);
-			ofDisableBlendMode();
-			
+			imagen.draw(-radio,-radio,_diametro,_diametro);
 		ofPopStyle();
 	glPopMatrix();
+	
 	
 }
 
 // en caso de que sea rectángulo
-void boton::draw(int _x, int _y, int _largo, int _ancho) {
+void boton::draw(ofVec2f _pos, int _largo, int _ancho, string _texto) {
 
-	Absx =_x;
-	Absy =_y;
+	texto = _texto;
+	Absx =_pos.x;
+	Absy =_pos.y;
 	largo = _largo;
 	ancho = _ancho;
+
 
 	ofRectangle bounds = typo.getStringBoundingBox(texto, 0, 0);
 
@@ -117,47 +92,72 @@ void boton::draw(int _x, int _y, int _largo, int _ancho) {
 	ofPopStyle();
 }
 
+// en caso de que sea rectángulo con imagen
+void boton::draw(ofVec2f _pos, int _largo, int _ancho, ofImage _imagen) {
+
+	Absx =_pos.x;
+	Absy =_pos.y;
+	largo = _largo;
+	ancho = _ancho;
+	imagen = _imagen;
+
+	ofPushStyle();
+		ofSetColor(color);
+		imagen.draw(Relx+Absx,Rely+Absy,largo,ancho);
+	ofPopStyle();
+}
+
 void boton::mouseMoved(ofMouseEventArgs & args){}
 void boton::mouseDragged(ofMouseEventArgs & args){}
 void boton::mousePressed(ofMouseEventArgs & args){
 	//ofNotifyEvent(evento, texto,  this);
 	if((dentro(args.x, args.y))){
-		color = globales.paqueteColores[colorBoton]["click"];
+		color = Globales::paqueteColores[colorBoton]["click"];
 		escala = 0.9;
 		estaDentro = false;
 	}
 	
 }
 void boton::mouseReleased(ofMouseEventArgs & args){
-
 	if((dentro(args.x, args.y)) && !estaDentro){
-		color = globales.paqueteColores[colorBoton]["normal"];
+		color = Globales::paqueteColores[colorBoton]["normal"];
 		escala = 1;
 		estaDentro = true;
-		
+
+	} else	if(!dentro(args.x,args.y)&& !estaDentro){
+		color = Globales::paqueteColores[colorBoton]["normal"];
+		escala = 1;
+		estaDentro = false;
 	}
 }
 
 
 bool boton::dentro(float _x, float _y) {
 	
-	if(tipoBoton == 0)
+	if(tipoBoton == circuloImagen || tipoBoton == circuloTexto)
+		//circulo;
 		return(ofVec2f(_x,_y).distance(ofVec2f(Relx + Absx,Rely + Absy)) < radio);
-	if(tipoBoton == 1)
+	if(tipoBoton == rectImagen || tipoBoton ==rectTexto)
 		return ((_x > Relx + Absx) && (_x < (Relx + Absx) + largo) && (_y > Rely + Absy) && (_y < Rely + Absy + ancho));
 
 }
 
 
 void boton::estados(bool _estados) {
-
+	
 	if(_estados){
-		color = globales.paqueteColores[colorBoton]["normal"];
-		
-		ofRegisterMouseEvents(this);
+		color = Globales::paqueteColores[colorBoton]["normal"];
+		if(!eventos) {
+			ofRegisterMouseEvents(this);
+			eventos = true;
+		}
 	} else {
-	  color = globales.paqueteColores[colorBoton]["disable"];
-		ofUnregisterMouseEvents(this);
+	  color = Globales::paqueteColores[colorBoton]["disable"];
+	if(eventos) {
+	  ofUnregisterMouseEvents(this);
+		eventos = false;
+	}
+
 	}
 
 }

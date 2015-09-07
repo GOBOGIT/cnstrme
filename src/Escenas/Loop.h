@@ -3,7 +3,7 @@
 //#include "ofEvents.h"
 #include "../Gui/Boton.h"
 
-class Inicio {
+class Loop {
 
 private:
 	
@@ -14,8 +14,8 @@ private:
 
 public:
 
-	Inicio(){};
-	~Inicio() {};
+	Loop(){};
+	~Loop() {};
 	
 	void draw(int _r, int _g, int _b);
 	

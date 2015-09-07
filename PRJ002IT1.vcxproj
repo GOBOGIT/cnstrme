@@ -105,11 +105,12 @@
     <ClCompile Include="..\..\..\addons\ofxTween\src\ofxTween.cpp" />
     <ClCompile Include="src\3D\gestor3D.cpp" />
     <ClCompile Include="src\Cajas\cajaAnim.cpp" />
+    <ClCompile Include="src\Cajas\cajaBoton.cpp" />
     <ClCompile Include="src\Cajas\cajaGR_Circulos.cpp" />
     <ClCompile Include="src\Cajas\cajaImagen.cpp" />
     <ClCompile Include="src\Cajas\cajaTexto.cpp" />
     <ClCompile Include="src\Escenas\Galeria.cpp" />
-    <ClCompile Include="src\Escenas\Inicio.cpp" />
+    <ClCompile Include="src\Escenas\Loop.cpp" />
     <ClCompile Include="src\Escenas\Principal.cpp" />
     <ClCompile Include="src\Eventos.cpp" />
     <ClCompile Include="src\globales.cpp" />
@@ -142,11 +143,12 @@
     <ClInclude Include="..\..\..\addons\ofxTween\src\ofxTween.h" />
     <ClInclude Include="src\3D\gestor3D.h" />
     <ClInclude Include="src\Cajas\cajaAnim.h" />
+    <ClInclude Include="src\Cajas\cajaBoton.h" />
     <ClInclude Include="src\Cajas\cajaGR_Circulos.h" />
     <ClInclude Include="src\Cajas\cajaImagen.h" />
     <ClInclude Include="src\Cajas\cajaTexto.h" />
     <ClInclude Include="src\Escenas\Galeria.h" />
-    <ClInclude Include="src\Escenas\Inicio.h" />
+    <ClInclude Include="src\Escenas\Loop.h" />
     <ClInclude Include="src\Escenas\Principal.h" />
     <ClInclude Include="src\Eventos.h" />
     <ClInclude Include="src\globales.h" />

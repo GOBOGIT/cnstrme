@@ -7,7 +7,7 @@ class cajaGrCirculos {
 
 
 	ofxTween anim;
-	ofxEasingBounce easingBounce;
+	ofxEasingBack easingBounce;
 	ofPath path, circulo;
 
 	int w;

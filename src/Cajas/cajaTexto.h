@@ -20,7 +20,7 @@ class cajaTexto {
 	@param color de fondo
 	@param color de texto
 	@param orden de arriba a abajo en contenedor */
-	cajaTexto(int,int, string, ofColor, ofColor, unsigned int);
+	cajaTexto(unsigned int,int,int, string, ofColor, ofColor);
 
 	void draw();
 	void update() {};

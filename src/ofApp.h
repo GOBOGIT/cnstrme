@@ -2,7 +2,7 @@
 
 #include "ofMain.h"
 #include "Globales.h"
-#include "Escenas\Inicio.h"
+#include "Escenas\Loop.h"
 #include "Escenas\Principal.h"
 #include "Escenas\Galeria.h"
 #include "Gui/GuiEscenas.h"
@@ -13,7 +13,7 @@ extern Globales globales;
 
 class ofApp : public ofBaseApp {
 
-		Inicio escenaInicial;
+		Loop loop;
 		Principal escenaPrincipal;
 		Galeria escenaGaleria;
 		GuiEscenas guiEscenas;

@@ -11,9 +11,10 @@ void ofApp::setup(){
 	// escenas
 	escenaPrincipal.iniciar("Principal");
 	escenaGaleria.iniciar("Galeria");
-	escenaInicial.iniciar("Inicio");
+	loop.iniciar("Inicio");
+	loop.estados(true);
 	//varios
-	//ofSetFrameRate(60);
+	ofSetFrameRate(60);
 	ofTrueTypeFont::setGlobalDpi(72);
 	ofSetCircleResolution(64);
 
@@ -37,8 +38,8 @@ void ofApp::setup(){
 void ofApp::update(){
 
 
-		if(escenaInicial.BtnInicio.getter()){
-			escenaInicial.BtnInicio.setter(false);
+		if(loop.BtnInicio.getter()){
+			loop.BtnInicio.setter(false);
 			selEscena(1, escenaPrincipal.titulo);
 		}
 		if(guiEscenas.BtnInicio.getter()){
@@ -46,7 +47,7 @@ void ofApp::update(){
 				selEscena(1, escenaPrincipal.titulo);
 		}
 		if(guiEscenas.BtnRegresaInicio.getter()){
-			selEscena(0, escenaInicial.titulo);
+			selEscena(0, loop.titulo);
 			guiEscenas.BtnRegresaInicio.setter(false);
 		}
 		if(guiEscenas.BtnGaleria.getter()){
@@ -56,18 +57,18 @@ void ofApp::update(){
 		guiEscenas.update();
 		titulo.update();
 		escenaGaleria.update();
+		escenaPrincipal.update();
 
-	}
+}
 
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-//	ofEnableBlendMode(OF_BLENDMODE_ALPHA);
-//	ofEnableSmoothing();
+
 
 
 	switch(escenas) {
-		case inicio:	escenaInicial.draw(200,200,200);	break;
+		case inicio:	loop.draw(200,200,200);	break;
 		case principal:	escenaPrincipal.draw(230,230,230);	break;
 		case galeria:	escenaGaleria.draw(230,230,230);	break;
 	}
@@ -98,26 +99,25 @@ void ofApp::draw(){
 
 
 void ofApp::selEscena(int _numEscena, string _titulo) {
-cout << escenaSel;
-cout << _numEscena << endl;
 
 tituloEscena = _titulo;
 if(escenaSel !=_numEscena) {
 	switch(_numEscena){
 		case 0: 
 			estadosEscenas(1,0,0);
-			guiEscenas.estados(0,0,0,"inc");
+			guiEscenas.estados(0,0,0);
 			rafaga(false,inicio, tituloEscena);	
 			break;
 		case 1: 
 			estadosEscenas(0,1,0);
-			guiEscenas.estados(1,0,1,"pri");
+			guiEscenas.estados(1,0,1);
+			//guiEscenas.animacion();
 			rafaga(false,principal, tituloEscena);	
 			break;
 		case 2:
 			estadosEscenas(0,0,1);
-			guiEscenas.estados(1,1,0,"gal");
-			rafaga(true,galeria, tituloEscena);	
+			guiEscenas.estados(1,1,0);
+			rafaga(false,galeria, tituloEscena);	
 			break;
 	}
 	
@@ -125,7 +125,7 @@ if(escenaSel !=_numEscena) {
 }
 
 void ofApp::estadosEscenas(bool _a, bool _b, bool _c) {
-	escenaInicial.estados(_a);
+	loop.estados(_a);
 	_b? escenaPrincipal.activar() : escenaPrincipal.desactivar();
 	escenaGaleria.estados(_c);
 	
@@ -144,8 +144,6 @@ void ofApp::rafaga(bool _rafaga, esc _esc, string _titulo) {
 		escenaSel = _esc;
 		
 }
-
-
 
 void ofApp::keyPressed(int key){}
 void ofApp::keyReleased(int key){}

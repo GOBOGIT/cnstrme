@@ -1,22 +1,21 @@
 #include "GuiEscenas.h"
 
+#define DELAY 20.
+#define DURATION 300.
+
 void GuiEscenas::setup() {
 
 	//tween
 	estado =true;
-	delay = 20;
-	duration = 300;
 	POSY = 100;
 	LARGO = 300;
 
-	
-	a = b = "inicio";
-	estados(0,0,0, a);
+	estados(0,0,0);
 
 	//botones
-	BtnInicio.setup("ESCENA 3D",0, "verde");
-	BtnRegresaInicio.setup( "INICIO",0,"verde");
-	BtnGaleria.setup("GALERIA",0,"verde");
+	BtnInicio= boton(boton::circuloTexto, "verde");
+	BtnRegresaInicio= boton(boton::circuloTexto,"verde");
+	BtnGaleria= boton(boton::circuloImagen,"verde");
 
 }
 
@@ -33,41 +32,26 @@ void GuiEscenas::draw(float _x, float _y) {
 	}
 
 	ofPushMatrix();
-			BtnRegresaInicio.draw(0,0,50);
-			BtnInicio.draw(150,0,50);
-			BtnGaleria.draw(300,0,50);
+			BtnRegresaInicio.draw(ofVec2f(0,0),50, "INICIO");
+			BtnInicio.draw(ofVec2f(150,0),50, "ESCENA 3D");
+			BtnGaleria.draw(ofVec2f(300,0),100, Globales::iconos["icoGaleria"]);
 	ofPopMatrix();
 
 }
 
 void GuiEscenas::update() {
-
 	BtnRegresaInicio.update(x,y);
 	BtnInicio.update(x,y);
 	BtnGaleria.update(x,y);
-	
-
-	// animacion gui
-
-	if(a != b){
-			if(a == "inicio") estado = true;
-			if((a=="principal") && (estado)) animacion();
-			if(a =="ayuda") estado = false;
-	b = a;
-	}
-
 }
 
 void GuiEscenas::animacion() {
-	cout << "entraanim" << endl;
-	animGuiLinear.setParameters(2,easinglinear,ofxTween::easeOut, 0,POSY,duration,delay);
-
+	estado = true;
+	//animacion();
+	animGuiLinear.setParameters(2,easinglinear,ofxTween::easeOut, 0,POSY,DURATION, DELAY);
 }
 
-void GuiEscenas::estados(bool _a, bool _b, bool _c, string _escena) {
-	
-	a = _escena;
-
+void GuiEscenas::estados(bool _a, bool _b, bool _c) {
 	BtnRegresaInicio.estados(_a);
 	BtnInicio.estados(_b);
 	BtnGaleria.estados(_c);

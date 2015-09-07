@@ -8,6 +8,7 @@
 #include "../Cajas/cajaTexto.h"
 #include "../Cajas/cajaImagen.h"
 #include "../Cajas/cajaGR_Circulos.h"
+#include "../Cajas/cajaBoton.h"
 #include "../3D/gestor3D.h"
 
 
@@ -34,11 +35,12 @@ public:
 	ofLight iluminacion;
 
 	boton botonPanel;
+	boton btnContenedor;
 	string titulo;
 
 	Contenedor guiEstatico;
 	
-
+	cajaBoton cajaBtn;
 	cajaTexto cajaTxt;
 	cajaImagen cajaImg;
 	cajaGrCirculos cajaCirculo, otraCajaC;

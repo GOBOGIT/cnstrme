@@ -18,15 +18,12 @@ public:
 	void setup();
 	void update();
 	void draw(float, float);
-	void estados(bool,bool,bool, string);
+	void estados(bool,bool,bool);
 	void animacion();
 
-	int delay;
-	int duration;
 	int POSY;
 	int LARGO;
 
-	string a,b;
 
 	//ofTrueTypeFont typo;
 	boton BtnInicio;

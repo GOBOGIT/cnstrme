@@ -6,7 +6,7 @@ void gestor3D::setup(){
 	//??
 	ofDisableArbTex();
 
-	escena.loadModel("escena.dae",false);
+	escena.loadModel("escena_1.dae",false);
 	escena.enableColors();
 	escena.enableMaterials();
 
@@ -88,7 +88,7 @@ void gestor3D::draw(){
 		camara.begin();
 		glPushMatrix();  
 			// problema con ofEsayCam, invertir eje Y
-			ofScale (1,-1,1); 
+			ofScale (0.5,-0.5,0.5); 
 			ofTranslate(0,100,0);
 				//http://www.openframeworks.cc/documentation/ofxAssimpModelLoader/ofxAssimpModelLoader.html
 				escena.drawFaces();

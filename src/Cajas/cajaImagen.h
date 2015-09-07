@@ -14,7 +14,7 @@ public:
 	@param ancho y largo para allocate del fbo
 	@param textura a insertar en fbo
 	@param posicion de arriba a abajo en contenedor */
-	cajaImagen(int,int, ofTexture, unsigned int);
+	cajaImagen(int,int, ofImage, unsigned int);
 
 	void draw();
 	void update();
@@ -22,7 +22,7 @@ public:
 
 	string texto;
 	ofFbo fbo;
-	ofTexture imagen;
+	ofImage imagen;
 
 	int h;
 	unsigned int posFila;

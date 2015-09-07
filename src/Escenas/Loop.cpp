@@ -1,9 +1,6 @@
-#include "Inicio.h"
+#include "Loop.h"
 
-// desde extern ofapp
-extern Globales globales;
-
-void Inicio::iniciar(string _titulo) {
+void Loop::iniciar(string _titulo) {
 	
 	titulo = _titulo;
 	//tween
@@ -17,17 +14,19 @@ void Inicio::iniciar(string _titulo) {
 	
 	// boton
 	click = false;
-	BtnInicio.setup("INICIAR",0,"verde");
+	//boton BtnInicio(boton::circuloImagen,"verde");
+	BtnInicio = boton(boton::circuloImagen,"verde");
+	//BtnInicio.setup("INICIAR",0,"verde");
 
 }
 
-void Inicio::draw(int _r, int _g, int _b) {
+void Loop::draw(int _r, int _g, int _b) {
  
-	ofBackgroundGradient(ofColor::white,globales.bgGris(), OF_GRADIENT_CIRCULAR);
+	ofBackgroundGradient(ofColor::white,Globales::color["gris220"], OF_GRADIENT_CIRCULAR);
 	
 	//ofBackground(_r, _g, _b);
 	imagen.draw((ofGetWidth()/2 )- imagen.getWidth()/2, ((ofGetHeight()/2) - imagen.getHeight()/2)-animImagenInicio.update());
-	BtnInicio.draw((ofGetWidth()/2 ), (ofGetHeight()/2) +  150,50);
+	BtnInicio.draw(ofVec2f(ofGetWidth()/2 , (ofGetHeight()/2) +  150),128, Globales::iconos["iconoInicio"]);
 
 	if (BtnInicio.getter()){
 			BtnInicio.setter(false);
@@ -36,7 +35,7 @@ void Inicio::draw(int _r, int _g, int _b) {
 
 }
 
-void Inicio::estados(bool _estado) {
+void Loop::estados(bool _estado) {
 
 	if(_estado){
 		delay = 0;
@@ -49,10 +48,10 @@ void Inicio::estados(bool _estado) {
 
 }
 
-bool Inicio::getter(){
+bool Loop::getter(){
 	return click;
 }
 
-void Inicio::setter(bool _click){
+void Loop::setter(bool _click){
 	click = false;
 }

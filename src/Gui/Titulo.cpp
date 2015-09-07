@@ -1,7 +1,5 @@
 #include "Titulo.h"
 
-// desde extern ofApp
-extern Globales globales;
 
 Titulo::Titulo() {
 
@@ -9,7 +7,7 @@ Titulo::Titulo() {
 	iniciaAnim = false;
 	stack = "";
 	textoTitulo = "GALERIA\nPRINCIPAL";
-	titulo = globales.typoTitulo;
+	titulo = Globales::tipografia["titulo"];
 	titulo.setLineHeight(120);
 	anchoFbo = 85;
 	anchoLinea = 5;

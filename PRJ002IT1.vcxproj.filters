@@ -19,9 +19,6 @@
     <ClCompile Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpTexture.cpp">
       <Filter>addons\ofxAssimpModelLoader\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Escenas\Inicio.cpp">
-      <Filter>src\Escenas</Filter>
-    </ClCompile>
     <ClCompile Include="src\Escenas\Principal.cpp">
       <Filter>src\Escenas</Filter>
     </ClCompile>
@@ -104,6 +101,12 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Cajas\cajaGR_Circulos.cpp">
+      <Filter>src\Cajas</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Escenas\Loop.cpp">
+      <Filter>src\Escenas</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cajas\cajaBoton.cpp">
       <Filter>src\Cajas</Filter>
     </ClCompile>
   </ItemGroup>
@@ -266,9 +269,6 @@
     <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\ProgressHandler.h">
       <Filter>addons\ofxAssimpModelLoader\libs\assimp\include</Filter>
     </ClInclude>
-    <ClInclude Include="src\Escenas\Inicio.h">
-      <Filter>src\Escenas</Filter>
-    </ClInclude>
     <ClInclude Include="src\Escenas\Principal.h">
       <Filter>src\Escenas</Filter>
     </ClInclude>
@@ -351,6 +351,12 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\Cajas\cajaGR_Circulos.h">
+      <Filter>src\Cajas</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Escenas\Loop.h">
+      <Filter>src\Escenas</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cajas\cajaBoton.h">
       <Filter>src\Cajas</Filter>
     </ClInclude>
   </ItemGroup>

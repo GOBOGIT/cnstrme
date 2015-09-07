@@ -6,6 +6,7 @@
 #include "../Cajas/cajaGR_Circulos.h"
 #include "../Cajas/cajaTexto.h"
 #include "../Cajas/cajaImagen.h"
+#include "../Cajas/cajaBoton.h"
 
 class Contenedor {
 
@@ -16,7 +17,10 @@ private:
 	float posy;
 	vector<unsigned int> posyFila;
 	vector<unsigned int>anchoCaja;
-	ofFbo fbo;
+
+	vector<cajaTexto> cajasTexto;
+	vector<cajaGrCirculos> cajasCirculos;
+	vector<cajaImagen> cajasImagen;
 
 
 	int barra;
@@ -24,13 +28,7 @@ private:
 	bool iniciaAnim;
 	bool btnSalida;
 	bool b_barra;
-
-	struct contenidofilas {
-		vector<cajaTexto> cajasTexto;
-		vector<cajaGrCirculos> cajasCirculos;
-		vector<cajaImagen> cajasImagen;
-	} stFilas;
-
+	bool eventos;
 
 public:
 
@@ -47,15 +45,17 @@ public:
 	void update();
 	void estados(bool);
 	void animacion();
+
+	map<string, cajaBoton> cajasBotones;
 	
 	/** añade elementos al contenedor */
-	//void fila(ofFbo);
 	void fila(cajaGrCirculos);
 	void fila(cajaTexto);
 	void fila(cajaImagen);
+	void fila(cajaBoton);
 
 
-	ofEvent <string> evento;
+	//ofEvent <string> evento;
 	void mouseMoved(ofMouseEventArgs & args);
     void mouseDragged(ofMouseEventArgs & args);
 	void mousePressed(ofMouseEventArgs & args);
@@ -67,7 +67,7 @@ public:
 	int anchoFinal;
 
 	bool dentro(float,float);
-	bool getter();
+	bool getter(){return estaDentro;};
 	void setter(bool);
 
 
@@ -77,4 +77,7 @@ public:
 
 	ofxTween animacionContenedor;
 	ofxEasingLinear easinglinear;
+
+
+
 };
