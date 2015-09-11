@@ -1,0 +1,40 @@
+{
+  "tipo" :[
+    {"name": "med",		"file": "OpenSans-Regular.ttf",		"size": 12},
+	{"name": "titulo",	"file": "OpenSans-Light.ttf",		"size": 20}
+  ],
+
+  "ico" :[
+    {"name": "iconoInicio",	"file": "Iconos/inicio.png"},
+	{"name": "icoGaleria",	"file": "Iconos/icoGaleria.png"},
+	{"name": "cerrar400x50","file": "Iconos/cerrar400x50.png"}
+  ],
+
+  "img" :[
+    {"name": "mockup160x160",	"file": "cajaImg160x160.png"},
+	{"name": "mockup1000x500",	"file": "cajaImg1000x500.png"}
+  ],
+  
+  "vid" :[
+    {"name": "videoPrueba",	"file": "animPrueba.mov"}
+  ],
+
+  "color" :[
+    {"name": "gris200",	"r":200,	"g":200,	"b":200},
+	{"name": "gris220",	"r":220,	"g":220,	"b":220}
+  ],
+
+  "rgb" :[
+    {"grupo":"verde","color":[
+		{"is":"normal","r": 195, "g":225,"b":195},
+		{"is":"click",	"r":150, "g":225, "b": 150},
+		{"is":"disable","r":200, "g":200, "b": 200}
+    ]},
+	{"grupo":"rojo","color":[
+		{"is":"normal",	"r":225, "g":195, "b": 195},
+		{"is":"click",	"r":225, "g":150, "b": 150},
+		{"is":"disable","r":200, "g":200, "b": 200}
+    ]}
+   ]
+
+}

@@ -58,7 +58,7 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <AdditionalIncludeDirectories>E:\opf\opfVB\addons\ofxTween\src\Easings;E:\opf\opfVB\addons\ofxTween\src;E:\opf\opfVB\addons\ofxTween\src\Easings;E:\opf\opfVB\addons\ofxTween\src;%(AdditionalIncludeDirectories);..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\Compiler;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxJson\libs;..\..\..\addons\ofxJson\src;..\..\..\addons\ofxJson\libs\jsoncpp;..\..\..\addons\ofxJson\libs\jsoncpp\include;..\..\..\addons\ofxJson\libs\jsoncpp\include\json;..\..\..\addons\ofxJson\libs\jsoncpp\src;..\..\..\addons\ofxTween\src\Easings;..\..\..\addons\ofxTween\src;E:\opf\opfVB\addons\ofxTween\src\Easings;E:\opf\opfVB\addons\ofxTween\src;%(AdditionalIncludeDirectories);..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\Compiler;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
@@ -75,7 +75,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>E:\opf\opfVB\addons\ofxTween\src\Easings;E:\opf\opfVB\addons\ofxTween\src;%(AdditionalIncludeDirectories);..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\Compiler;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxJson\libs;..\..\..\addons\ofxJson\src;..\..\..\addons\ofxJson\libs\jsoncpp;..\..\..\addons\ofxJson\libs\jsoncpp\include;..\..\..\addons\ofxJson\libs\jsoncpp\include\json;..\..\..\addons\ofxJson\libs\jsoncpp\src;..\..\..\addons\ofxTween\src\Easings;..\..\..\addons\ofxTween\src;%(AdditionalIncludeDirectories);..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\Compiler;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
@@ -90,6 +90,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\addons\ofxJson\libs\jsoncpp\src\jsoncpp.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxJson\src\ofxJSONElement.cpp" />
     <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasing.cpp" />
     <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingBack.cpp" />
     <ClCompile Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingBounce.cpp" />
@@ -128,6 +130,10 @@
     <ClCompile Include="src\Rafaga.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\addons\ofxJson\libs\jsoncpp\include\json\json-forwards.h" />
+    <ClInclude Include="..\..\..\addons\ofxJson\libs\jsoncpp\include\json\json.h" />
+    <ClInclude Include="..\..\..\addons\ofxJson\src\ofxJSON.h" />
+    <ClInclude Include="..\..\..\addons\ofxJson\src\ofxJSONElement.h" />
     <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasing.h" />
     <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingBack.h" />
     <ClInclude Include="..\..\..\addons\ofxTween\src\Easings\ofxEasingBounce.h" />

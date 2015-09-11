@@ -109,6 +109,12 @@
     <ClCompile Include="src\Cajas\cajaBoton.cpp">
       <Filter>src\Cajas</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxJson\src\ofxJSONElement.cpp">
+      <Filter>addons\ofxJson\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxJson\libs\jsoncpp\src\jsoncpp.cpp">
+      <Filter>addons\ofxJson\libs\jsoncpp\src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -155,6 +161,27 @@
     </Filter>
     <Filter Include="src\3D">
       <UniqueIdentifier>{c4307628-b017-451b-83bf-101aa1f0e098}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxJson">
+      <UniqueIdentifier>{2c160108-b4f3-433a-bbf5-8dd42c1583ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxJson\libs">
+      <UniqueIdentifier>{bacb657a-222a-4ef3-8108-6a281b05ce2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxJson\src">
+      <UniqueIdentifier>{74998b67-985e-410c-bd3b-1e185187b4d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxJson\libs\jsoncpp">
+      <UniqueIdentifier>{823974c4-ee37-4f4c-9baf-8305288bd742}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxJson\libs\jsoncpp\include">
+      <UniqueIdentifier>{49d4905d-5a8e-45d4-bb0f-743556795bb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxJson\libs\jsoncpp\src">
+      <UniqueIdentifier>{223da1cc-c47d-42ad-b647-e12568957f0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxJson\libs\jsoncpp\include\json">
+      <UniqueIdentifier>{5e713096-c75f-4e24-b30d-ef21580001cf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -358,6 +385,18 @@
     </ClInclude>
     <ClInclude Include="src\Cajas\cajaBoton.h">
       <Filter>src\Cajas</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxJson\src\ofxJSON.h">
+      <Filter>addons\ofxJson\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxJson\src\ofxJSONElement.h">
+      <Filter>addons\ofxJson\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxJson\libs\jsoncpp\include\json\json.h">
+      <Filter>addons\ofxJson\libs\jsoncpp\include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxJson\libs\jsoncpp\include\json\json-forwards.h">
+      <Filter>addons\ofxJson\libs\jsoncpp\include\json</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

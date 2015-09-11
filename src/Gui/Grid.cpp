@@ -5,6 +5,10 @@
 #define MASS 1.
 #define K 30.
 
+void Grid::setup() {
+
+}
+
 void Grid::draw(int _posx, int _posy, int _largoVentana, int _anchoventana) {
 
 
@@ -21,7 +25,7 @@ void Grid::draw(int _posx, int _posy, int _largoVentana, int _anchoventana) {
 	// numero de filas necesarioas
 	numFilas = ceil(numContenedores / numCol);
 	// ancho total del contenido
-	anchoTotalVentana = numFilas * contenedores[0].anchoFinal;
+	anchoTotalVentana =(numFilas * contenedores[0].anchoFinal) + posy;
 
 	//centra el grid
 	posx = (_largoVentana/2) - ((numCol * contenedores[0].largo + 5)/2);
@@ -29,11 +33,12 @@ void Grid::draw(int _posx, int _posy, int _largoVentana, int _anchoventana) {
 	ventana.begin();
 	
 	ofPushMatrix();
-		ofTranslate(0,position,0);
 		for(unsigned int i = 0; i < numFilas; i++) {
 			for(unsigned int ii = 0; ii < numCol; ii++) {
 				if(contenedorID < numContenedores) {	
-					contenedores[contenedorID].draw(posxContenedor,posyFila);
+					
+					contenedores[contenedorID].draw(posxContenedor,posyFila+position);
+					contenedores[contenedorID].update(posx, posy);
 					posxContenedor += contenedores[contenedorID].largo+5;
 				++contenedorID;
 				} 
@@ -41,15 +46,15 @@ void Grid::draw(int _posx, int _posy, int _largoVentana, int _anchoventana) {
 			posxContenedor = 0;
 			posyFila += contenedores[i].anchoFinal+5;
 		}
-
+	
 		contenedorID = 0;
 		posyFila = 0;
 	ofPopMatrix();
 	
 	ventana.end();
-	ventana.draw(posx,posy,largoVentana,anchoVentana);
 
-	dibujaLimites();
+	ventana.draw(ofRectangle(posx,posy,largoVentana,anchoVentana));
+	//dibujaLimites();
 
 	float t=ofGetElapsedTimef();
     float dt=t-time;
@@ -125,7 +130,10 @@ void Grid::dibujaLimites() {
 }
 
 
-void Grid::update() {}
+void Grid::update() {
+
+
+}
 
 void Grid::estados(bool _estado) {
 		

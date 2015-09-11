@@ -9,33 +9,45 @@ class boton {
 
 private:
 
-	Globales globales;
-	bool estaDentro;
-	bool isDrag;
 	
+	bool estaDentro;
+//	bool isDrag;
+	bool eventos;
+	
+	Globales globales;
 	ofColor color;
+	ofTrueTypeFont typo;
+	ofImage imagen;
 	
 	int posTextoX;
 	int posTextoY;
-	int Relx, Rely, radio;
-	int Absx, Absy;
+	int  radio;
 	int ancho, largo;
-	bool eventos;
-	
 	float escala;
-	ofTrueTypeFont typo;
-
-	ofFbo fboImagen;
-	ofFbo fboMascara;
 	
-	ofImage imagen;
+	ofMatrix4x4 posicion;
+	ofPoint origen;
+	
 
 public:
 
 	enum tiposBotones{circuloTexto,circuloImagen,rectTexto,rectImagen};
 	
 	boton() {};
-	boton(tiposBotones _tipoBtn, string _colorBoton);
+	boton(tiposBotones _tipoBtn, string _colorBoton){
+		posicion(0,0);
+		tipoBoton = _tipoBtn;
+		escala = 1;
+		colorBoton = _colorBoton;
+		eventos =false;
+		estaDentro = false;
+
+		typo = Globales::tipografia["med"];
+		typo.setLineHeight(18.0f); 
+ 		typo.setLetterSpacing(1.02); 
+
+		color = Globales::paqueteColores[colorBoton]["normal"];
+	};
 	
 	~boton() {};
 
@@ -46,9 +58,7 @@ public:
 	void draw(ofVec2f,int, ofImage);			// circulo: pos y radio con imagen
 	void draw(ofVec2f,int,int,ofImage);			//  rectángulo: pos, largo , ancho e imagen
 
-
-
-	ofEvent <string> evento;
+	//ofEvent <string> evento;
 
 	void mouseMoved(ofMouseEventArgs & args);
     void mouseDragged(ofMouseEventArgs & args);
@@ -56,7 +66,6 @@ public:
     void mouseReleased(ofMouseEventArgs & args);
 	
 	bool dentro(float,float);
-
 	void estados(bool);
 
 	bool getter() { return estaDentro; }
@@ -65,7 +74,6 @@ public:
 	string colorBoton;
 	string texto;
 	
-	//tiposBotones tipoBtn;
 	tiposBotones tipoBoton;
 
 };

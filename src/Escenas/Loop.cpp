@@ -14,9 +14,7 @@ void Loop::iniciar(string _titulo) {
 	
 	// boton
 	click = false;
-	//boton BtnInicio(boton::circuloImagen,"verde");
-	BtnInicio = boton(boton::circuloImagen,"verde");
-	//BtnInicio.setup("INICIAR",0,"verde");
+	BtnInicio = boton(boton::circuloImagen, "verde");
 
 }
 
@@ -26,7 +24,10 @@ void Loop::draw(int _r, int _g, int _b) {
 	
 	//ofBackground(_r, _g, _b);
 	imagen.draw((ofGetWidth()/2 )- imagen.getWidth()/2, ((ofGetHeight()/2) - imagen.getHeight()/2)-animImagenInicio.update());
-	BtnInicio.draw(ofVec2f(ofGetWidth()/2 , (ofGetHeight()/2) +  150),128, Globales::iconos["iconoInicio"]);
+	
+
+		BtnInicio.draw(ofVec2f(ofGetWidth()/2 , (ofGetHeight()/2) +  150),128, Globales::iconos["iconoInicio"]);
+
 
 	if (BtnInicio.getter()){
 			BtnInicio.setter(false);

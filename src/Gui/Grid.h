@@ -12,12 +12,13 @@ class Grid {
 	 int posxContenedor, posyFila;
 	 int contenedorID;
 	 int posx,posy, largoVentana, anchoVentana;
+	 int cambioFila, cambioCol;
 	 float anchoTotalVentana;
 	 ofFbo ventana;
 	 vector<Contenedor> contenedores;
 	 void reset();
 	 void dibujaLimites();
-
+	 vector<ofVec2f> posCont;
 
 
 	// p: pressed
@@ -28,7 +29,7 @@ class Grid {
     float pOrigin;
     float desOrigin;
 	float time;
-	float position;
+	int position;
     float destination;
     float velocity;
 
@@ -38,6 +39,8 @@ public:
 		contenedorID =0;
 		posxContenedor = 0;
 		posyFila = 0;
+		cambioFila =0;
+		cambioCol = 0;
 		ofRegisterMouseEvents(this);	
 		p=false;
 		pOrigin=0;
@@ -56,6 +59,7 @@ public:
 
 	
 	void draw(int,int,int,int);
+	void setup();
 	void update();
 	void add(vector<Contenedor>);
 	bool dentro(float,float);

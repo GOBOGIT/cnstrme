@@ -5,7 +5,8 @@
 #include "../Gui/Boton.h"
 #include "../Gui/Contenedor.h"
 #include "../Cajas/cajaImagen.h"
-#include "../Cajas//cajaTexto.h"
+#include "../Cajas/cajaTexto.h"
+#include "../Cajas/cajaBoton.h"
 #include "../Gui/Grid.h"
 
 class Galeria {
@@ -33,8 +34,9 @@ public:
 	string titulo;
 	cajaImagen cajaImg;
 	cajaTexto cajaTxt;
+	cajaBoton cajaBtn;
 
-	boton botones;
+	boton btn;
 	Contenedor contenedor;
 	Grid grid;
 	

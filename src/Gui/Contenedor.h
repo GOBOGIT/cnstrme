@@ -15,6 +15,7 @@ private:
 
 	float posx;
 	float posy;
+	float posyFinal;
 	vector<unsigned int> posyFila;
 	vector<unsigned int>anchoCaja;
 
@@ -41,8 +42,8 @@ public:
 		@param crear boton de salida? 
 		@param activar barra?	*/
 	void setup(int, int, string, bool, bool);
-	void draw(int,int);
-	void update();
+	void draw(float,float);
+	void update(int =0, int =0);
 	void estados(bool);
 	void animacion();
 

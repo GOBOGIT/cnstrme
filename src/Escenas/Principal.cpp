@@ -15,9 +15,9 @@ void Principal::iniciar(string _titulo) {
 	otraCajaC = cajaGrCirculos(2,400,250,20,18,0.9,0.7, ofColor::darkGray);
 	
 
-	btnContenedor = boton(boton::circuloTexto,"verde");
-	//cajaBtn = cajaBoton(3,400,100,50,"titulo", boton::circuloTexto,"verde");
-	cajaBtn = cajaBoton(3,400,100,"jeje",btnContenedor);
+	btnContenedor = boton(boton::rectTexto,"verde");
+
+	cajaBtn = cajaBoton(3,400,100,"prueba", btnContenedor);
 	// necesario para regresar los getters
 	cajaBtn.id ="caja";
 	
@@ -36,7 +36,7 @@ void Principal::draw(int _r, int _g, int _b) {
 	ofBackgroundGradient(ofColor::white,Globales::color["gris220"], OF_GRADIENT_CIRCULAR);
 	
 	escena3D.draw();
-	botonPanel.draw(ofVec2f(0,0), 50, "abrir");
+	botonPanel.draw(ofVec2f(90,600), 50,"panel");
 
 	if(!botonPanelActivo)
 		guiEstatico.draw(ofGetWindowWidth() - 450,50);
@@ -53,7 +53,7 @@ void Principal::update(){
 
 	escena3D.update();
 	//guiEstatico.update();
-	botonPanel.update(100,ofGetWindowHeight() -200);
+	//botonPanel.update(100,ofGetWindowHeight() -200);
 	
 	if(botonPanelActivo){
 		// abre cotnenedor

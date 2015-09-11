@@ -51,7 +51,7 @@ class ofApp : public ofBaseApp {
 		
 		void rafaga(bool,esc, string);
 
-
+		Globales globales;
 		ofxTween tween;
 		ofxEasingLinear easing;
 

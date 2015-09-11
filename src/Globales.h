@@ -1,24 +1,32 @@
 #pragma once
 #include "ofMain.h"
+#include "ofxJSON.h"
 
 class Globales {
-		
-	public:
 
-		static ofColor bgGris();
-		static ofColor bgGrisOscuro();
+
+	public:
 
 		static map<string,ofImage> iconos;
 		static map<string,ofImage> imagenes;
 		static map<string,ofTrueTypeFont> tipografia;
-
-		static ofVideoPlayer videoAnim;
+		static map<string, ofVideoPlayer> videoPlayer;
 
 		static map<string, map<string, ofColor>> paqueteColores;
 		static map<string, ofColor> color;
 
-		static void assets();
-	
+		void assets();
+		//void setup();
+
+		//importa los elementos desde un archivo JSON
+		ofxJSONElement json;
+
+		string nombreTipografia;
+		int sizeTipo;
+
+		/* stringstream &ss; */
+		string archivo;
+		bool parsingOk;	
 };
 
 

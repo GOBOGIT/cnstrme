@@ -14,8 +14,8 @@ void GuiEscenas::setup() {
 
 	//botones
 	BtnInicio= boton(boton::circuloTexto, "verde");
-	BtnRegresaInicio= boton(boton::circuloTexto,"verde");
-	BtnGaleria= boton(boton::circuloImagen,"verde");
+	BtnRegresaInicio = boton(boton::circuloTexto,"verde");
+	BtnGaleria = boton(boton::circuloImagen,"verde");
 
 }
 
@@ -32,18 +32,14 @@ void GuiEscenas::draw(float _x, float _y) {
 	}
 
 	ofPushMatrix();
-			BtnRegresaInicio.draw(ofVec2f(0,0),50, "INICIO");
-			BtnInicio.draw(ofVec2f(150,0),50, "ESCENA 3D");
-			BtnGaleria.draw(ofVec2f(300,0),100, Globales::iconos["icoGaleria"]);
+			BtnRegresaInicio.draw(ofVec2f(x,y),50,"INICIO");
+			BtnInicio.draw(ofVec2f(x+150,y),50, "ESCENA 3d");
+			BtnGaleria.draw(ofVec2f(x+300,y),100,Globales::iconos["icoGaleria"]);
 	ofPopMatrix();
 
 }
 
-void GuiEscenas::update() {
-	BtnRegresaInicio.update(x,y);
-	BtnInicio.update(x,y);
-	BtnGaleria.update(x,y);
-}
+void GuiEscenas::update(){};
 
 void GuiEscenas::animacion() {
 	estado = true;
