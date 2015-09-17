@@ -13,9 +13,9 @@ void GuiEscenas::setup() {
 	estados(0,0,0);
 
 	//botones
-	BtnInicio= boton(boton::circuloTexto, "verde");
-	BtnRegresaInicio = boton(boton::circuloTexto,"verde");
-	BtnGaleria = boton(boton::circuloImagen,"verde");
+	BtnInicio.setup(boton::circuloTexto, "verde");
+	BtnRegresaInicio.setup(boton::circuloTexto,"verde");
+	BtnGaleria.setup(boton::circuloImagen,"verde");
 
 }
 

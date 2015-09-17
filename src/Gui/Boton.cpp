@@ -1,8 +1,24 @@
 #include "Boton.h"
+void boton::setup(tiposBotones _tipoBtn, string _colorBoton) {
+		posicion(0,0);
+		tipoBoton = _tipoBtn;
+		escala = 1;
+		colorBoton = _colorBoton;
+		eventos =false;
+		estaDentro = false;
+		setter(false);
+
+		typo = Globales::tipografia["med"];
+		typo.setLineHeight(18.0f); 
+ 		typo.setLetterSpacing(1.02); 
+
+		color = Globales::paqueteColores[colorBoton]["normal"];
+}
+
+
 
 void boton::update(int _x, int _y) {
 	// recoge el cambio de posicion o contenedor
-	cout << _y<< endl;
 	posicion = ofMatrix4x4::newTranslationMatrix(ofVec3f(_x,_y));
 }
 
@@ -125,4 +141,13 @@ void boton::estados(bool _estados) {
 			eventos = false;
 		}
 	}
+}
+
+
+bool boton::getter() { 
+	return estaDentro; 
+}
+
+void boton::setter(bool _dentro){
+	estaDentro =_dentro;  
 }

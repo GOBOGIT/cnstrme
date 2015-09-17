@@ -12,17 +12,17 @@ map<string,ofColor>  Globales::color;
 map<string, map<string, ofColor>> Globales::paqueteColores;
 
 // videos
-map<string, ofVideoPlayer> Globales::videoPlayer;
-
+map<string, ofVideoPlayer*> Globales::videoPlayer;
+map<string, ofxHapPlayer*> Globales::videoHap;
 
 void Globales::assets(){
 		
 
-		// carga el archivo de importacion de elementos audiovisuales
+		// carga el archivo de importacion de elementos audiovisuales*
 		archivo ="JSON/multimedia.json";
 		parsingOk = json.open(archivo);
-		if (parsingOk) 
-			ofLogNotice("ofApp::setup") << json.getRawString(); 
+		if (parsingOk)  {}
+			//ofLogNotice("ofApp::setup") << json.getRawString(); 
 	    else 
 	        ofLogError("ofApp::setup")  << "Failed to parse JSON" << endl; 
 
@@ -35,11 +35,20 @@ void Globales::assets(){
 
 		for(ofxJSONElement js : json["img"])
 			imagenes[js["name"].asString()].loadImage(js["file"].asString());
-		
 
-		for(ofxJSONElement js : json["vid"]) 
-			videoPlayer[js["name"].asString()].loadMovie(js["file"].asString());
+		for(ofxJSONElement js : json["vid"]) {
+				// por incompatibilidad con ofxHapPlayer
+				ofVideoPlayer *v = new ofVideoPlayer();
+				v->loadMovie(js["file"].asString());
+				videoPlayer[js["name"].asString()] = v;
+		}
 
+		for(ofxJSONElement js : json["vidHAP"]) {
+				// por incompatibilidad con ofxHapPlayer
+				ofxHapPlayer *v = new ofxHapPlayer();
+				v->loadMovie(js["file"].asString());
+				videoHap[js["name"].asString()] = v;
+		}
 
 		for(ofxJSONElement js : json["color"])
 			color[js["name"].asString()] = ofColor(js["r"].asInt(),js["g"].asInt(),js["b"].asInt());

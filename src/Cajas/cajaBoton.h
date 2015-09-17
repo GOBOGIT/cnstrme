@@ -18,13 +18,12 @@ public:
 
 
 	cajaBoton(){};
-	cajaBoton(unsigned int _posFila, int _w, int _h, ofImage _imagen, boton _btn);	// rectangulo imagen
-	cajaBoton(unsigned int _posFila, int _w, int _h, string _titulo, boton _btn);	// rectangulo imagen
-
-	cajaBoton(unsigned int _posFila, int _w, int _h, int _r, ofImage _imagen, boton _btn);			// circulo
-	cajaBoton(unsigned int _posFila, int _w, int _h, int _r, string _titulo, boton _btn);	
+	cajaBoton(unsigned int _posFila, int _w, int _h, ofImage _imagen, boton &_btn);	// rectangulo imagen
+	cajaBoton(unsigned int _posFila, int _w, int _h, string _titulo, boton &_btn);	// rectangulo imagen
+	cajaBoton(unsigned int _posFila, int _w, int _h, int _r, ofImage _imagen, boton &_btn);			// circulo
+	cajaBoton(unsigned int _posFila, int _w, int _h, int _r, string _titulo, boton &_btn);	
 	
-	boton btn;
+	boton *btn;
 	void draw(int, int);
 	void update(int, int);
 	void estados(bool);

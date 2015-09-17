@@ -35,7 +35,9 @@ void Grid::draw(int _posx, int _posy, int _largoVentana, int _anchoventana) {
 	ofPushMatrix();
 		for(unsigned int i = 0; i < numFilas; i++) {
 			for(unsigned int ii = 0; ii < numCol; ii++) {
-				if(contenedorID < numContenedores) {	
+
+				if(contenedorID < numContenedores) {
+
 					
 					contenedores[contenedorID].draw(posxContenedor,posyFila+position);
 					contenedores[contenedorID].update(posx, posy);
@@ -69,8 +71,9 @@ void Grid::draw(int _posx, int _posy, int _largoVentana, int _anchoventana) {
 
 }
 
-void Grid::add(vector<Contenedor> _contenedor) {
-	contenedores.swap(_contenedor);
+void Grid::add(map<int, Contenedor> &_contenedor) {
+	move( _contenedor.begin(), _contenedor.end(), inserter( contenedores, contenedores.end()));
+	//contenedores.swap(_contenedor);
 }
 
 
@@ -136,14 +139,18 @@ void Grid::update() {
 }
 
 void Grid::estados(bool _estado) {
-		
 	
-
+	
 	if(_estado) {
 		ofRegisterMouseEvents(this);
-		for(unsigned int i=0; i < contenedores.size(); i++) {
-			contenedores[i].estados(true);
+		
+		for(int i = 0; i < contenedores.size();i++){
+			cout << "estado galeria" + ofToString(_estado) << endl;
+			contenedores[i].estados(_estado);
 		}
+
+		//for(auto &contenedor : contenedores){}
+	
 	}else
 	{
 		reset();

@@ -1,58 +1,48 @@
 #include "Loop.h"
 
-void Loop::iniciar(string _titulo) {
-	
-	titulo = _titulo;
+void Loop::setup() {
 	//tween
 	delay = 500;
 	duration = 1500;
-	// carga fuente
-
-	// imagen
+	// imagen logo
 	animImagenInicio.setParameters(7,easingelastic,ofxTween::easeOut, 70,100,duration,delay);
-	ofLoadImage(imagen, "imagenInicio.png");
-	
+	imagen = Globales::imagenes["logo"];
 	// boton
-	click = false;
-	BtnInicio = boton(boton::circuloImagen, "verde");
-
+	estado= false;
+	BtnInicio.setup(boton::circuloImagen, "verde");
+	//video HAP
+	videoF = Globales::videoHap["videoLoop"];
+	videoF->setLoopState(OF_LOOP_NORMAL);
 }
 
 void Loop::draw(int _r, int _g, int _b) {
- 
 	ofBackgroundGradient(ofColor::white,Globales::color["gris220"], OF_GRADIENT_CIRCULAR);
-	
-	//ofBackground(_r, _g, _b);
+	 
+	if (videoF->isLoaded()) {
+			videoF->draw(0,0, ofGetWindowWidth(), ofGetWindowHeight());
+			videoF->update();
+	 } 
+
 	imagen.draw((ofGetWidth()/2 )- imagen.getWidth()/2, ((ofGetHeight()/2) - imagen.getHeight()/2)-animImagenInicio.update());
-	
-
-		BtnInicio.draw(ofVec2f(ofGetWidth()/2 , (ofGetHeight()/2) +  150),128, Globales::iconos["iconoInicio"]);
-
+	BtnInicio.draw(ofVec2f(ofGetWidth()/2 , (ofGetHeight()/2) +  150),128, Globales::iconos["iconoInicio"]);
 
 	if (BtnInicio.getter()){
 			BtnInicio.setter(false);
-			click= true;
-		}
-
+			estado= true;
+		} 
 }
 
 void Loop::estados(bool _estado) {
-
 	if(_estado){
 		delay = 0;
 		animImagenInicio.setParameters(7,easingelastic,ofxTween::easeOut, 70,+100,duration,delay);
 		BtnInicio.estados(true);
+		if (videoF->isLoaded()) 
+			videoF->play();
 	} else {
-
 	BtnInicio.estados(false);
+		videoF->stop();
+		videoF->setPosition(0);
 	}
-
 }
 
-bool Loop::getter(){
-	return click;
-}
-
-void Loop::setter(bool _click){
-	click = false;
-}

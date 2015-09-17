@@ -1,21 +1,18 @@
 #include "Principal.h"
 
 
-void Principal::iniciar(string _titulo) {
-	titulo = _titulo;
+void Principal::setup() {
 
+	botonPanelActivo = true;
 	escena3D.setup();
 
-	botonPanel = boton(boton::circuloTexto, "verde");
-	botonPanelActivo = true;
+	botonPanel.setup(boton::circuloTexto, "verde");
 
 	// inicializa cajas
 	cajaCirculo = cajaGrCirculos(0,400,200,560,360,0.8,0.9, ofColor::darkGray);
 	cajaTxt = cajaTexto(1,400,100, "Porcentaje de llamadas totales\npor numeros de clicks", ofColor::darkGrey, ofColor::white);
 	otraCajaC = cajaGrCirculos(2,400,250,20,18,0.9,0.7, ofColor::darkGray);
-	
-
-	btnContenedor = boton(boton::rectTexto,"verde");
+	btnContenedor.setup(boton::rectTexto,"verde");
 
 	cajaBtn = cajaBoton(3,400,100,"prueba", btnContenedor);
 	// necesario para regresar los getters
@@ -28,7 +25,6 @@ void Principal::iniciar(string _titulo) {
 	guiEstatico.fila(cajaBtn);
 	guiEstatico.setup(400,560, "ESTATICO", true, false);
 
-
 }
 
 
@@ -38,26 +34,28 @@ void Principal::draw(int _r, int _g, int _b) {
 	escena3D.draw();
 	botonPanel.draw(ofVec2f(90,600), 50,"panel");
 
-	if(!botonPanelActivo)
+
+	
+	if(!botonPanelActivo) {
 		guiEstatico.draw(ofGetWindowWidth() - 450,50);
+	}
 
 }
 
 void Principal::update(){
 
 	// recibe getter del boton del contenedor con id "caja"
-	if(guiEstatico.cajasBotones["caja"].btn.getter()) {
-		guiEstatico.cajasBotones["caja"].btn.setter(false);
+	if(guiEstatico.cajasBotones["caja"].btn->getter()) {
+		guiEstatico.cajasBotones["caja"].btn->setter(false);
 		cout << "holaaa" << endl;
 	}
 
 	escena3D.update();
-	//guiEstatico.update();
-	//botonPanel.update(100,ofGetWindowHeight() -200);
 	
 	if(botonPanelActivo){
 		// abre cotnenedor
 		if(botonPanel.getter()) {
+			cout << "entrabtn" << endl;
 			guiEstatico.estados(true);	// bloquea / activa el boton, tipo checkbox
 			botonPanelActivo = false;
 			botonPanel.setter(false);
@@ -80,16 +78,17 @@ void Principal::update(){
 
 }
 
-void Principal::activar() {
-	botonPanel.estados(true);
-	escena3D.camara.enableMouseInput(); 
-
+void Principal::estados(bool _estado) {
+	if(_estado) {
+		botonPanel.estados(true);
+		escena3D.camara.enableMouseInput(); 
+	} else {
+		botonPanel.estados(false);
+		escena3D.camara.disableMouseInput();
+	}
 }
-void Principal::desactivar() {
-	botonPanel.estados(false);
-	escena3D.camara.disableMouseInput();
 
-}
+
 
 
 

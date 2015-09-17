@@ -1,26 +1,25 @@
 #include "cajaAnim.h"
 
-cajaAnim::cajaAnim(int _largo, int _ancho, ofVideoPlayer _video) {
+cajaAnim::cajaAnim(unsigned int _posFila, int _largo, int _ancho, ofVideoPlayer* _video, ofLoopType _tipoLoop) {
 	video = _video;
 	largo = _largo;
-	ancho = _ancho;
+	h = _ancho;
+	tipoLoop = _tipoLoop;
+	posFila = _posFila;
 
-	video.setLoopState(OF_LOOP_NONE);
-	fbo.allocate(largo,ancho);
-
+	_video->setLoopState(tipoLoop);
+	fbo.allocate(largo,h);
 }
 
 void cajaAnim::update() {
-	
-	video.update();
+	video->update();
 	fbo.begin();
 		ofPushMatrix();
-					video.draw(0,0, largo, ancho);
+				video->draw(0,0, largo, h);
 		ofPopMatrix();
 	fbo.end();
 }
 
 void cajaAnim::draw() {
-	//video.play();
-	fbo.draw(0,0,largo,ancho);
+	fbo.draw(0,0,largo,h);
 }

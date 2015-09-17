@@ -1,43 +1,24 @@
 #pragma once
 
 #include "ofMain.h"
-#include "../Globales.h"
-#include "../Gui/Boton.h"
-#include "../Gui/Contenedor.h"
-#include "../Cajas/cajaImagen.h"
-#include "../Cajas/cajaTexto.h"
-#include "../Cajas/cajaBoton.h"
-#include "../Gui/Grid.h"
+#include "../Escena.h"
 
-class Galeria {
-
+class Galeria: public Escena {
 	
+	bool esRafaga;
+	Contenedor muchosCont[18];
+	map<int,Contenedor> muchosC;
+
 public:
 
 	Galeria() {};
 	~Galeria() {};
 
-
 	void draw(int _r, int _g, int _b);
-	void update();
-
-
-	void iniciar(string);
+	void setup();
 	void estados(bool);
-
-	// matriz para carga de muestra
-	vector<Contenedor> matrizContenedores;
-	vector<Contenedor> muchosC;
-	ofVideoPlayer prueba;
-	ofFbo fboPrueba;
-
-	string titulo;
-	cajaImagen cajaImg;
-	cajaTexto cajaTxt;
-	cajaBoton cajaBtn;
-
+	
 	boton btn;
-	Contenedor contenedor;
 	Grid grid;
 	
 };

@@ -15,7 +15,7 @@ class Grid {
 	 int cambioFila, cambioCol;
 	 float anchoTotalVentana;
 	 ofFbo ventana;
-	 vector<Contenedor> contenedores;
+	 map<int,Contenedor> contenedores;
 	 void reset();
 	 void dibujaLimites();
 	 vector<ofVec2f> posCont;
@@ -61,7 +61,7 @@ public:
 	void draw(int,int,int,int);
 	void setup();
 	void update();
-	void add(vector<Contenedor>);
+	void add(map<int,Contenedor> &arg);
 	bool dentro(float,float);
 	
 	void estados(bool);

@@ -12,12 +12,18 @@
 
   "img" :[
     {"name": "mockup160x160",	"file": "cajaImg160x160.png"},
-	{"name": "mockup1000x500",	"file": "cajaImg1000x500.png"}
+	{"name": "mockup1000x500",	"file": "cajaImg1000x500.png"},
+	{"name": "logo",			"file":"imagenInicio.png"}
   ],
   
   "vid" :[
     {"name": "videoPrueba",	"file": "animPrueba.mov"}
   ],
+
+  "vidHAP" :[
+	{"name": "videoLoop",	"file": "videoLoopUno.mov"}
+  ],
+
 
   "color" :[
     {"name": "gris200",	"r":200,	"g":200,	"b":200},

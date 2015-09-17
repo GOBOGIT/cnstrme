@@ -1,7 +1,7 @@
 #include "cajaImagen.h"
 
 
-cajaImagen::cajaImagen(int _largo, int _ancho, ofImage _textura, unsigned int _posFila) {
+cajaImagen::cajaImagen(unsigned int _posFila, int _largo, int _ancho, ofImage _textura) {
 
 
 	imagen = _textura;

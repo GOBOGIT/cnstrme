@@ -1,17 +1,15 @@
 #pragma once
 
-#include "ofMain.h"
-#include "Boton.h"
+//#include "ofMain.h"
+//#include "Boton.h"
 #include "../globales.h"
 #include "../Cajas/cajaGR_Circulos.h"
 #include "../Cajas/cajaTexto.h"
 #include "../Cajas/cajaImagen.h"
 #include "../Cajas/cajaBoton.h"
+#include "../Cajas/cajaAnim.h"
 
 class Contenedor {
-
-
-private:
 
 	float posx;
 	float posy;
@@ -22,7 +20,7 @@ private:
 	vector<cajaTexto> cajasTexto;
 	vector<cajaGrCirculos> cajasCirculos;
 	vector<cajaImagen> cajasImagen;
-
+	vector<cajaAnim> cajasVideo;
 
 	int barra;
 	bool estaDentro;
@@ -47,13 +45,16 @@ public:
 	void estados(bool);
 	void animacion();
 
+
+	// permite recoger getters desde cajasBotones
 	map<string, cajaBoton> cajasBotones;
 	
 	/** añade elementos al contenedor */
-	void fila(cajaGrCirculos);
-	void fila(cajaTexto);
-	void fila(cajaImagen);
-	void fila(cajaBoton);
+	void fila(cajaGrCirculos &arg);
+	void fila(const cajaTexto &arg);
+	void fila(cajaImagen &arg);
+	void fila(cajaBoton &arg);
+	void fila(cajaAnim &arg);
 
 
 	//ofEvent <string> evento;

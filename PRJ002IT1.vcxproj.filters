@@ -70,9 +70,6 @@
     <ClCompile Include="src\Cajas\cajaImagen.cpp">
       <Filter>src\Cajas</Filter>
     </ClCompile>
-    <ClCompile Include="src\globales.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\Gui\Titulo.cpp">
       <Filter>src\Gui</Filter>
     </ClCompile>
@@ -114,6 +111,18 @@
     </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxJson\libs\jsoncpp\src\jsoncpp.cpp">
       <Filter>addons\ofxJson\libs\jsoncpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Escena.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\globales.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxHapPlayer\libs\HapSupport\src\HapSupport.c">
+      <Filter>addons\ofxHapPlayer\libs\HapSupport\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxHapPlayer\src\ofxHapPlayer.cpp">
+      <Filter>addons\ofxHapPlayer\src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -183,11 +192,23 @@
     <Filter Include="addons\ofxJson\libs\jsoncpp\include\json">
       <UniqueIdentifier>{5e713096-c75f-4e24-b30d-ef21580001cf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="addons\ofxHapPlayer">
+      <UniqueIdentifier>{f9fd4bea-4027-4257-821a-4999a2a7bf54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxHapPlayer\src">
+      <UniqueIdentifier>{2136c629-cbf5-41ba-a782-c71e43e11f74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxHapPlayer\libs">
+      <UniqueIdentifier>{fc4c0260-198a-4bc0-9b9a-24a769098623}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxHapPlayer\libs\HapSupport">
+      <UniqueIdentifier>{299d24bd-ba78-4346-8456-b441ce95e48b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxHapPlayer\libs\HapSupport\src">
+      <UniqueIdentifier>{5295bf51-9abb-492f-83d1-4bc0d72722e9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\ofApp.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.h">
       <Filter>addons\ofxAssimpModelLoader\src</Filter>
     </ClInclude>
@@ -398,8 +419,23 @@
     <ClInclude Include="..\..\..\addons\ofxJson\libs\jsoncpp\include\json\json-forwards.h">
       <Filter>addons\ofxJson\libs\jsoncpp\include\json</Filter>
     </ClInclude>
+    <ClInclude Include="src\Escena.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ofApp.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxHapPlayer\libs\HapSupport\src\HapSupport.h">
+      <Filter>addons\ofxHapPlayer\libs\HapSupport\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxHapPlayer\src\ofxHapPlayer.h">
+      <Filter>addons\ofxHapPlayer\src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\data\JSON\multimedia.json" />
   </ItemGroup>
 </Project>

@@ -1,8 +1,9 @@
 #pragma once
 #include "ofMain.h"
 #include "ofxJSON.h"
+#include "ofxHapPlayer.h"
 
-class Globales {
+class Globales : public ofBaseApp{
 
 
 	public:
@@ -10,13 +11,13 @@ class Globales {
 		static map<string,ofImage> iconos;
 		static map<string,ofImage> imagenes;
 		static map<string,ofTrueTypeFont> tipografia;
-		static map<string, ofVideoPlayer> videoPlayer;
+		static map<string, ofVideoPlayer*> videoPlayer;
+		static map<string, ofxHapPlayer*> videoHap;
 
 		static map<string, map<string, ofColor>> paqueteColores;
 		static map<string, ofColor> color;
 
 		void assets();
-		//void setup();
 
 		//importa los elementos desde un archivo JSON
 		ofxJSONElement json;
@@ -24,7 +25,6 @@ class Globales {
 		string nombreTipografia;
 		int sizeTipo;
 
-		/* stringstream &ss; */
 		string archivo;
 		bool parsingOk;	
 };

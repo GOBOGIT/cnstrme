@@ -7,11 +7,8 @@
 
 class boton {
 
-private:
 
-	
 	bool estaDentro;
-//	bool isDrag;
 	bool eventos;
 	
 	Globales globales;
@@ -35,22 +32,28 @@ public:
 	
 	boton() {};
 	boton(tiposBotones _tipoBtn, string _colorBoton){
+		cout << "crea boton" << endl;
 		posicion(0,0);
 		tipoBoton = _tipoBtn;
 		escala = 1;
 		colorBoton = _colorBoton;
 		eventos =false;
 		estaDentro = false;
+		setter(false);
 
 		typo = Globales::tipografia["med"];
 		typo.setLineHeight(18.0f); 
  		typo.setLetterSpacing(1.02); 
 
 		color = Globales::paqueteColores[colorBoton]["normal"];
-	};
+	}; 
 	
-	~boton() {};
+	~boton() {
+		cout << "destruye boton" << endl;
+		//delete this;
+		}; 
 
+	void setup(tiposBotones _tipoBtn, string _colorBoton);
 	void update(int,int);
 	
 	void draw(ofVec2f,int,string);				// circulo: pos y radio
@@ -67,9 +70,9 @@ public:
 	
 	bool dentro(float,float);
 	void estados(bool);
+	bool getter();
+	void setter(bool);
 
-	bool getter() { return estaDentro; }
-	void setter(bool _dentro){ estaDentro =_dentro;  };
 
 	string colorBoton;
 	string texto;

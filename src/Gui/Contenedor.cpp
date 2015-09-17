@@ -16,7 +16,7 @@ void Contenedor::setup(int _largo, int _ancho, string _titulo, bool _btnSalida, 
 
 
 	if(btnSalida)
-		botonSalir = boton(boton::rectImagen,"rojo");
+		botonSalir.setup(boton::rectImagen,"rojo");
 
 	titulo = Globales::tipografia["med"];
 
@@ -65,9 +65,13 @@ void Contenedor::draw(float _posx, float _posy){
 		ofPushMatrix();
 		ofTranslate(0,posyFila[i]);
 
-		for(cajaGrCirculos &cajaSel : cajasCirculos) {	
+	for(cajaGrCirculos &cajaSel : cajasCirculos) {	
 			if(!cajasCirculos.empty() && cajaSel.posFila == i){
-				if(iniciaAnim) cajaSel.iniciaAnim();
+				
+				if(iniciaAnim){
+					cajaSel.iniciaAnim();
+					cout << "anim circulos" + ofToString(iniciaAnim) << endl;
+				}
 				cajaSel.draw();
 				cajaSel.update();
 			}
@@ -80,6 +84,14 @@ void Contenedor::draw(float _posx, float _posy){
 		for(cajaImagen &cajaSel : cajasImagen) {	
 			if(!cajasImagen.empty() && cajaSel.posFila == i) cajaSel.draw();
 		}
+
+		for(cajaAnim &cajaSel : cajasVideo) {	
+			if(!cajasVideo.empty() && cajaSel.posFila == i){
+				cajaSel.draw();
+				cajaSel.update();
+			}
+		}
+
 
 		map<string, cajaBoton>::iterator it;
 		for(it = cajasBotones.begin(); it!= cajasBotones.end(); it++){
@@ -106,31 +118,37 @@ void Contenedor::update(int _posx, int _posy){
 
 	map<string, cajaBoton>::iterator it;
 	for(it = cajasBotones.begin(); it!= cajasBotones.end(); it++){
-		if(!cajasBotones.empty()) it->second.btn.update(_posx, _posy); 
+		if(!cajasBotones.empty()) it->second.btn->update(_posx, _posy); 
 	} 
 };
 
 
-void Contenedor::fila(cajaGrCirculos _caja) {
+void Contenedor::fila(cajaGrCirculos &_caja) {
 	cajasCirculos.push_back(_caja);
 	anchoCaja.push_back(_caja.h);
 }
 
-void Contenedor::fila(cajaTexto _caja) {
+void Contenedor::fila(const cajaTexto &_caja) {
 	cajasTexto.push_back(_caja);
 	anchoCaja.push_back(_caja.h);
 }
 
-void Contenedor::fila(cajaImagen _caja) {
+void Contenedor::fila(cajaImagen &_caja) {
 	cajasImagen.push_back(_caja);
 	anchoCaja.push_back(_caja.h);
 }
 
-void Contenedor::fila(cajaBoton _caja) {
-	cajasBotones[_caja.id] = _caja;
+void Contenedor::fila(cajaBoton &_caja) {
+	// en este caso es un MAP, para poder ecoger los getter por nombre del objeto
+	cajasBotones.emplace(_caja.id, move(_caja));
+	//cajasBotones[_caja.id] = _caja;
 	anchoCaja.push_back(_caja.h);
 }
 
+void Contenedor::fila(cajaAnim &_caja) {
+	cajasVideo.push_back(_caja);
+	anchoCaja.push_back(_caja.h);
+}
 
 
 void Contenedor::mouseMoved(ofMouseEventArgs & args){}
@@ -154,11 +172,21 @@ void Contenedor::estados(bool _estado){
 			ofRegisterMouseEvents(this);
 			eventos = true;
 		}
+		
+		// activa los botones
 		map<string, cajaBoton>::iterator it;
 		for(it = cajasBotones.begin(); it!= cajasBotones.end(); it++){
 			if(!cajasBotones.empty()) it->second.estados(true); 
-		} 
+		}
 
+
+
+		// reproduce el video al abrir el contenedor
+		for(cajaAnim &cajaSel : cajasVideo) {	
+			if(!cajasVideo.empty()) cajaSel.video->play();
+		}
+
+		
 		botonSalir.estados(true);
 		iniciaAnim = true;
 		animacion();
@@ -169,6 +197,14 @@ void Contenedor::estados(bool _estado){
 			eventos =false;
 		}
 		botonSalir.estados(false);
+
+		// para y reinicia a primer frame el video
+		for(cajaAnim &cajaSel : cajasVideo) {	
+			if(!cajasVideo.empty()){ 
+				cajaSel.video->stop();
+				cajaSel.video->setPosition(0);
+			}
+		}
 	}
 };
 

@@ -1,40 +1,30 @@
 #pragma once
 #include "ofMain.h"
-//#include "ofEvents.h"
-#include "../Gui/Boton.h"
+#include "../Escena.h"
 
-class Loop {
+
+class Loop : public Escena {
 
 private:
 	
-	ofTexture imagen;
+	ofImage imagen;
 	ofxTween animImagenInicio;
 	ofxEasingElastic easingelastic;
-	ofTrueTypeFont typo;
+	ofxHapPlayer* videoF;
 
 public:
 
 	Loop(){};
-	~Loop() {};
+	~Loop(){};
 	
 	void draw(int _r, int _g, int _b);
-	
-
-	void iniciar(string);
+	void setup();
 	void estados(bool);
-
-	bool click;
-	bool getter();
-	void setter(bool);
 
 	unsigned delay;
 	unsigned duration;
 
-	string titulo;
 	boton BtnInicio;
 	
-
-
-
 	
 };

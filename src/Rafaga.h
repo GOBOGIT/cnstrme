@@ -16,6 +16,7 @@ class Rafaga {
 	ofColor color;
 	bool finalizar;
 	bool terminado;
+	Contenedor *contenedor;
 
 public:
 
@@ -25,7 +26,7 @@ public:
 	@param duracion
 	@param velocidad animacion  (defecto 500)
 	@param color de fondo		(defecto lightGray) */
-	Rafaga(float, float = 500, ofColor = ofColor::lightGray);
+	Rafaga(float, Contenedor &contenedor, float = 500, ofColor = ofColor::lightGray);
 	~Rafaga(){};
 
 	void draw();
@@ -39,7 +40,4 @@ public:
 	ofxEasingQuint	EasingSine;
 
 
-	Contenedor contenedor;
-	cajaImagen cajaImg;
-	cajaTexto cajaTxt;
 };
